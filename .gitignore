@@ -1,0 +1,13 @@
+*
+!*.cc
+!*.hh
+!*.md
+!.gitignore
+!Makefile
+!*.u3d
+!tests
+!COPYING
+!src
+!demo
+!check
+!debug
