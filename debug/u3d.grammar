@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ufwb version="1.17">
+    <grammar name="U3D grammar" start="id:108" author="belgarath" fileextension="u3d">
+        <description>Grammar for U3D files</description>
+        <structure name="U3D file" id="108" encoding="ISO_8859-1:1987" endian="little" signed="no">
+            <structure name="Block" id="109" alignment="32" repeatmax="-1">
+                <number name="BlockType" id="110" type="integer" length="4"/>
+                <number name="DataSize" id="111" type="integer" length="4"/>
+                <number name="MetadataSize" id="112" type="integer" length="4"/>
+                <binary name="Data" id="113" length="DataSize"/>
+                <binary name="Metadata" id="114" length="MetadataSize"/>
+            </structure>
+        </structure>
+    </grammar>
+</ufwb>

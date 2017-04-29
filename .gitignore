@@ -5,6 +5,7 @@
 !.gitignore
 !Makefile
 !*.u3d
+!*.grammar
 !tests
 !COPYING
 !src
