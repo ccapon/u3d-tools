@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ufwb version="1.17">
+    <grammar name="U3D grammar" start="id:3" author="belgarath" fileextension="u3d">
+        <description>Grammar for U3D files</description>
+        <structure name="U3D file" id="3" length="0" alignment="0" encoding="ISO_8859-1:1987" endian="little" signed="no">
+            <structure name="Block" id="4" alignment="0" repeatmax="-1" valueexpression="BlockType">
+                <number name="BlockType" id="5" fillcolor="55AAFF" type="integer" length="4" display="hex" minval="0x0" maxval="0x0">
+                    <fixedvalues>
+                        <fixedvalue name="Group Node" value="0xFFFFFF21"/>
+                        <fixedvalue name="Model Node" value="0xFFFFFF22"/>
+                        <fixedvalue name="Light Node" value="0xFFFFFF23"/>
+                        <fixedvalue name="View Node" value="0xFFFFFF24"/>
+                        <fixedvalue name="Shading Modifier" value="0xFFFFFF45"/>
+                        <fixedvalue name="Subdivision Modifier" value="0xFFFFFF42"/>
+                        <fixedvalue name="Animation Modifier" value="0xFFFFFF43"/>
+                        <fixedvalue name="Bone Weight Modifier" value="0xFFFFFF44"/>
+                        <fixedvalue name="CLOD Modifier" value="0xFFFFFF46"/>
+                        <fixedvalue name="File Header" value="0x443355"/>
+                        <fixedvalue name="Modifier Chain" value="0xFFFFFF14"/>
+                        <fixedvalue name="Priority Update" value="0xFFFFFF15"/>
+                        <fixedvalue name="New Object Type" value="0xFFFFFF16"/>
+                        <fixedvalue name="Light Resource" value="0xFFFFFF51"/>
+                        <fixedvalue name="View Resource" value="0xFFFFFF52"/>
+                        <fixedvalue name="Lit Texture Shader" value="0xFFFFFF53"/>
+                        <fixedvalue name="Material" value="0xFFFFFF54"/>
+                        <fixedvalue name="Texture Continuation" value="0xFFFFFF5C"/>
+                        <fixedvalue name="CLOD Base Mesh Continuation" value="0xFFFFFF3B"/>
+                        <fixedvalue name="CLOD Progressive Mesh Continuation" value="0xFFFFFF3C"/>
+                    </fixedvalues>
+                </number>
+                <number name="DataSize" id="6" fillcolor="55AA7F" type="integer" length="4"/>
+                <number name="MetadataSize" id="7" fillcolor="FFAA00" type="integer" length="4"/>
+                <structure name="Data" id="2015" length="DataSize" alignment="4">
+                    <binary name="DataValue" id="8" fillcolor="7BF7B7" length="DataSize"/>
+                </structure>
+                <structure name="Metadata" id="2017" alignment="4">
+                    <binary name="MetadataValue" id="9" fillcolor="FFAA7F" length="MetadataSize">
+                        <description>Metadata</description>
+                    </binary>
+                </structure>
+            </structure>
+        </structure>
+        <structure name="File Header" id="2021" encoding="ISO_8859-1:1987" endian="big" signed="no">
+            <number name="Major Version" id="2023" type="integer" length="2"/>
+            <number name="Minor Version" id="2024" type="integer" length="2"/>
+            <number name="Profile Identifier" id="2025" type="integer" length="4"/>
+            <number name="Declaration Size" id="2026" type="integer" length="4"/>
+            <number name="File Size" id="2027" type="integer" length="8"/>
+            <number name="Character Encoding" id="2028" type="integer" length="4"/>
+            <number name="Units Scaling Factor" id="2029" type="float" length="64" lengthunit="bit"/>
+        </structure>
+    </grammar>
+</ufwb>
