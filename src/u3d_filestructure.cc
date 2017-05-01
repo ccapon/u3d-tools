@@ -146,6 +146,7 @@ void read_header_block(BitStreamReader& reader) {
     double units_scaling_factor;
     reader >> major_version >> minor_version >> profile_identifier >> declaration_size >> file_size >> character_encoding;
     units_scaling_factor = (profile_identifier & 0x8) ? reader.read<double>() : 1;
+    DUMP(profile_identifier);
     U3D_LOG << "Scaling factor = " << units_scaling_factor << std::endl;
 }
 }

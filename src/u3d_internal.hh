@@ -28,6 +28,7 @@
 #include <sstream>
 #include <exception>
 #include <cstdio>
+#include <iomanip>
 #include <string.h>
 #include <math.h>
 #include <stdint.h>

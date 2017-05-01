@@ -18,12 +18,10 @@
  */
 
 #include "u3d_internal.hh"
-#include <iomanip>
 
 namespace U3D
 {
 
-#define DUMP(x) {std::cerr << #x <<  "=" << std::hex << std::setfill('0') << "0x" << std::setw(4) << x << std::dec << "(" << x << ")" << std::endl ; }
 
 CLOD_Object::CLOD_Object(bool clod_desc_flag, BitStreamReader& reader)
 {

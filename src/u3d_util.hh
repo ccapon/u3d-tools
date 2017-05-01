@@ -45,5 +45,7 @@ public:
 #define U3D_LOG (std::cout << __FILE__ ":" << __LINE__ << ":")
 #define U3D_WARNING (std::cerr << __FILE__ ":" << __LINE__ << ":")
 #define U3D_ERROR (U3D::Error(__FILE__, __LINE__))
+#define DUMP(x) {std::cerr << #x <<  "=" << std::hex << std::setfill('0') << "0x" << std::setw(4) << x << std::dec << "(" << x << ")" << std::endl ; }
+
 
 }
