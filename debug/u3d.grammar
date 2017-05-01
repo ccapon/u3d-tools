@@ -1,91 +1,122 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ufwb version="1.17">
-    <grammar name="U3D grammar" start="id:5" author="belgarath" fileextension="u3d">
+    <grammar name="U3D grammar" start="id:13" author="belgarath" fileextension="u3d">
         <description>Grammar for U3D files</description>
         <scripts>
             <script name="getunitscaling" type="Generic" id="58">
-                <description></description>
                 <source language="Lua">print &quot;Generic Lua Script did run&quot;
 
 return 0</source>
             </script>
         </scripts>
-        <structure name="U3D file" id="5" length="0" alignment="0" repeatmax="1000000" encoding="ISO_8859-1:1987" endian="little" signed="no" order="variable">
-            <structref name="File Header" id="55" repeatmin="0" structure="id:6"/>
-            <structref name="Priority Update" id="2072" repeatmin="0" structure="id:2059"/>
-            <structref name="Unknown Block" id="56" repeatmin="0" structure="id:43"/>
+        <structure name="U3D file" id="13" length="0" alignment="0" repeatmax="1000000" encoding="ISO_8859-1:1987" endian="little" signed="no" order="variable">
+            <structref name="File Header" id="15" repeatmin="0" structure="id:14"/>
+            <structref name="Priority Update" id="17" repeatmin="0" structure="id:16"/>
+            <structref name="Modifier Chain" id="19" repeatmin="0" structure="id:18"/>
+            <structref name="Unknown Block" id="21" repeatmin="0" structure="id:20"/>
         </structure>
-        <structure name="Generic Block" id="13" encoding="ISO_8859-1:1987" endian="little" signed="no">
-            <number name="BlockType" id="14" fillcolor="55AAFF" type="integer" length="4" display="hex" minval="0x0" maxval="0xFFFFFFFFFFFFFFFF"/>
-            <number name="DataSize" id="15" fillcolor="55AA7F" type="integer" length="4" maxval="100000000"/>
-            <number name="MetadataSize" id="16" fillcolor="FFAA00" type="integer" length="4" minval="0" maxval="10000000"/>
-            <structure name="Data" id="17" length="0" alignment="4">
-                <binary name="DataValue" id="18" fillcolor="7BF7B7" length="DataSize"/>
-            </structure>
-            <structure name="Metadata" id="20" length="0" alignment="4">
-                <binary name="MetadataValue" id="21" fillcolor="FFAA7F" length="MetadataSize">
-                    <description>Metadata</description>
-                </binary>
-            </structure>
+        <structure name="Generic Block" id="23" encoding="ISO_8859-1:1987" endian="little" signed="no">
+            <number name="BlockType" id="24" fillcolor="55AAFF" type="integer" length="4" display="hex" minval="0x0" maxval="0x7FFFFFFFFFFFFFFF"/>
+            <number name="DataSize" id="25" fillcolor="55AA7F" type="integer" length="4" maxval="100000000"/>
+            <number name="MetadataSize" id="26" fillcolor="FFAA00" type="integer" length="4" minval="0" maxval="10000000"/>
+            <structure name="Data" id="27" length="DataSize" alignment="4"/>
+            <structure name="Metadata" id="29" length="MetadataSize" alignment="4"/>
         </structure>
-        <structure name="File Header" id="6" extends="id:13">
-            <number name="BlockType" mustmatch="yes" id="33" type="integer">
+        <structure name="File Header" id="14" extends="id:23">
+            <number name="BlockType" id="32" type="integer">
                 <fixedvalues>
                     <fixedvalue name="File Header" value="0x443355"/>
                 </fixedvalues>
             </number>
-            <number name="DataSize" id="34" type="integer"/>
-            <number name="MetadataSize" id="35" type="integer"/>
-            <structure name="Data" id="36">
-                <number name="Major Version" id="25" fillcolor="FFFF7F" type="integer" length="2">
+            <number name="DataSize" id="33" type="integer"/>
+            <number name="MetadataSize" id="34" type="integer"/>
+            <structure name="Data" id="35">
+                <number name="Major Version" id="36" fillcolor="FFFF7F" type="integer" length="2">
                     <description>Major version</description>
                 </number>
-                <number name="Minor Version" id="26" fillcolor="FFFF7F" type="integer" length="2"/>
-                <number name="ProfileIdentifier" id="27" fillcolor="AAFFFF" type="integer" length="4" minval="0"/>
-                <number name="Declaration Size" id="28" fillcolor="FFFF7F" type="integer" length="4"/>
-                <number name="File Size" id="29" fillcolor="AAFFFF" type="integer" length="8"/>
-                <number name="Character Encoding" id="30" fillcolor="FFFF7F" type="integer" length="4"/>
-                <structure name="Unit Scale" id="2057" repeatmin="if(and(ProfileIdentifier, 8), 1,0)" repeatmax="if(and(ProfileIdentifier, 8), 1,0)">
-                    <number name="Units Scale Factor" id="2056" fillcolor="AAFFFF" type="float" length="8"/>
+                <number name="Minor Version" id="37" fillcolor="FFFF7F" type="integer" length="2"/>
+                <number name="ProfileIdentifier" id="38" fillcolor="AAFFFF" type="integer" length="4" minval="0"/>
+                <number name="Declaration Size" id="39" fillcolor="FFFF7F" type="integer" length="4"/>
+                <number name="File Size" id="40" fillcolor="AAFFFF" type="integer" length="8"/>
+                <number name="Character Encoding" id="41" fillcolor="FFFF7F" type="integer" length="4"/>
+                <structure name="Unit Scale" id="42" repeatmin="if(and(ProfileIdentifier, 8), 1,0)" repeatmax="if(and(ProfileIdentifier, 8), 1,0)">
+                    <number name="Units Scale Factor" id="43" fillcolor="AAFFFF" type="float" length="8"/>
                 </structure>
             </structure>
-            <structure name="Metadata" id="39">
-                <binary name="MetadataValue" id="40">
+            <structure name="Metadata" id="46">
+                <binary name="MetadataValue" id="47" length="remaining">
                     <description>Metadata</description>
                 </binary>
             </structure>
         </structure>
-        <structure name="Priority Update" id="2059" extends="id:13">
-            <number name="BlockType" mustmatch="yes" id="2061" type="integer">
+        <structure name="Priority Update" id="16" extends="id:23">
+            <number name="BlockType" mustmatch="yes" id="50" type="integer">
                 <fixedvalues>
                     <fixedvalue name="Priority Block" value="0xFFFFFF15"/>
                 </fixedvalues>
             </number>
-            <number name="DataSize" id="2062" type="integer"/>
-            <number name="MetadataSize" id="2063" type="integer"/>
-            <structure name="Data" id="2064">
-                <number name="New Priority" id="2070" type="integer" length="4" minval="0" maxval="10000000"/>
+            <number name="DataSize" id="51" type="integer"/>
+            <number name="MetadataSize" id="52" type="integer"/>
+            <structure name="Data" id="53">
+                <number name="New Priority" id="54" type="integer" length="4" minval="0" maxval="10000000"/>
             </structure>
-            <structure name="Metadata" id="2067">
-                <binary name="MetadataValue" id="2068">
+            <structure name="Metadata" id="56">
+                <binary name="MetadataValue" id="57" length="remaining">
                     <description>Metadata</description>
                 </binary>
             </structure>
         </structure>
-        <structure name="Unknown Block" id="43" extends="id:13">
-            <number name="BlockType" id="44" type="integer">
-                <fixedvalues/>
+        <structure name="Modifier Chain" id="18" extends="id:23">
+            <number name="BlockType" mustmatch="yes" id="60" type="integer">
+                <fixedvalues>
+                    <fixedvalue name="Modifier Chain" value="0xFFFFFF14"/>
+                </fixedvalues>
             </number>
-            <number name="DataSize" id="45" type="integer"/>
-            <number name="MetadataSize" id="46" type="integer"/>
-            <structure name="Data" id="47">
-                <binary name="DataValue" id="48"/>
+            <number name="DataSize" id="61" type="integer"/>
+            <number name="MetadataSize" id="62" type="integer"/>
+            <structure name="Data" id="63" length="DataSize">
+                <structref name="Modifier Chain Name" id="65" structure="id:64"/>
+                <number name="Modifier Chain Type" id="66" type="integer" length="4"/>
+                <number name="ModifierChainAttributes" id="67" type="integer" length="4" display="hex"/>
+                <structure name="Modifier Chain Bounding Sphere" id="68" repeatmin="if(and(ModifierChainAttributes, 1), 1,0)" repeatmax="if(and(ModifierChainAttributes, 1), 1,0)">
+                    <number name="Bounding Sphere Center X" id="69" type="float" length="32" lengthunit="bit"/>
+                    <number name="Bounding Sphere Center Y" id="70" type="float" length="32" lengthunit="bit"/>
+                    <number name="Bounding Sphere Center Z" id="71" type="float" length="32" lengthunit="bit"/>
+                    <number name="Bounding Sphere Radius" id="72" type="float" length="32" lengthunit="bit"/>
+                </structure>
+                <structure name="Modifier Chain Axis Aligned BBox" id="74" repeatmin="if(and(ModifierChainAttributes, 2), 1,0)" repeatmax="if(and(ModifierChainAttributes, 2), 1,0)">
+                    <number name="Min X" id="75" type="float" length="32" lengthunit="bit"/>
+                    <number name="Min Y" id="76" type="float" length="32" lengthunit="bit"/>
+                    <number name="Min Z" id="77" type="float" length="32" lengthunit="bit"/>
+                    <number name="Max X" id="78" type="float" length="32" lengthunit="bit"/>
+                    <number name="Max Y" id="79" type="float" length="32" lengthunit="bit"/>
+                    <number name="Max Z" id="80" type="float" length="32" lengthunit="bit"/>
+                </structure>
             </structure>
-            <structure name="Metadata" id="50">
-                <binary name="MetadataValue" id="51">
+            <structure name="Metadata" id="83">
+                <binary name="MetadataValue" id="84" length="remaining">
                     <description>Metadata</description>
                 </binary>
             </structure>
+        </structure>
+        <structure name="Unknown Block" id="20" extends="id:23">
+            <number name="BlockType" id="87" type="integer">
+                <fixedvalues/>
+            </number>
+            <number name="DataSize" id="88" type="integer"/>
+            <number name="MetadataSize" id="89" type="integer"/>
+            <structure name="Data" id="90">
+                <binary name="DataValue" id="91" length="remaining"/>
+            </structure>
+            <structure name="Metadata" id="93">
+                <binary name="MetadataValue" id="94" length="remaining">
+                    <description>Metadata</description>
+                </binary>
+            </structure>
+        </structure>
+        <structure name="LPString" id="64" encoding="ISO_8859-1:1987" endian="big" signed="no" valueexpression="StringValue">
+            <number name="LPLength" id="97" type="integer" length="2" endian="little" maxval="9223372036854775807"/>
+            <string name="StringValue" id="98" type="fixed-length" length="LPLength"/>
         </structure>
     </grammar>
 </ufwb>
