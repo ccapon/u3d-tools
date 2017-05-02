@@ -26,6 +26,7 @@ if (mod&gt;0):
             <structref name="Light Node" id="23" repeatmin="0" structure="id:22"/>
             <structref name="Point Set" id="25" repeatmin="0" structure="id:24"/>
             <structref name="Point Set Continuation" id="27" repeatmin="0" structure="id:26"/>
+            <structref name="Lit Texture Shader" id="351" repeatmin="0" structure="id:340"/>
             <structref name="Unknown Block" id="29" repeatmin="0" structure="id:28"/>
         </structure>
         <structure name="Generic Block" id="31" encoding="UTF-8" endian="little" signed="no" valueexpression="BlockType">
@@ -305,6 +306,43 @@ else:
             </structure>
             <scriptelement name="Data Padding" id="238"/>
             <scriptelement name="MetadataPadding" id="241"/>
+        </structure>
+        <structure name="Lit Texture Shader" id="340" extends="id:31">
+            <number name="BlockType" mustmatch="yes" id="342" type="integer">
+                <fixedvalues>
+                    <fixedvalue name="Lit Texture Shader" value="0xFFFFFF53"/>
+                </fixedvalues>
+            </number>
+            <number name="DataSize" id="343" type="integer"/>
+            <number name="MetadataSize" id="344" type="integer"/>
+            <structure name="Data" id="345">
+                <structref name="Name" id="352" structure="id:76"/>
+                <number name="Attributes" id="353" type="integer" length="4"/>
+                <number name="Alpha Test Reference" id="354" type="integer" length="4"/>
+                <number name="Alpha Test Function" id="355" type="integer" length="4" display="hex"/>
+                <number name="Color Blend Function" id="356" type="integer" length="4" display="hex"/>
+                <number name="Render Pass Enabled Flags" id="357" type="integer" length="4"/>
+                <number name="ShaderChannels" id="358" type="integer" length="4"/>
+                <number name="Alpha Texture Channels" id="359" type="integer" length="4"/>
+                <structref name="Material Name" id="360" structure="id:76"/>
+                <structure name="Texture Informations" id="361" repeatmin="ShaderChannels" repeatmax="ShaderChannels">
+                    <structref name="Name" id="363" structure="id:76"/>
+                    <number name="Intensity" id="364" type="float" length="32" lengthunit="bit"/>
+                    <number name="Blend Function" id="365" type="integer" length="1"/>
+                    <number name="Blend Source" id="366" type="integer" length="1"/>
+                    <number name="Blend Constant" id="367" type="integer" length="4"/>
+                    <number name="Texture Mode" id="368" type="integer" length="1" display="hex"/>
+                    <structure name="Texture Transform Matrix" id="369" length="0">
+                        <number name="Texture Transform Matrix Element" id="371" repeatmin="16" repeatmax="16" type="float" length="32" lengthunit="bit"/>
+                    </structure>
+                    <structure name="Texture Wrap Transform Matrix" id="372">
+                        <number name="Texture Wrap Transform Matrix Element" id="374" repeatmin="16" repeatmax="16" type="float" length="32" lengthunit="bit"/>
+                    </structure>
+                    <number name="Texture Repeat" id="375" type="integer" length="1" display="hex"/>
+                </structure>
+            </structure>
+            <scriptelement name="Data Padding" id="347"/>
+            <scriptelement name="MetadataPadding" id="350"/>
         </structure>
         <structure name="Point Set" id="24" extends="id:31">
             <number name="BlockType" mustmatch="yes" id="273" type="integer">
