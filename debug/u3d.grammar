@@ -27,6 +27,7 @@ if (mod&gt;0):
             <structref name="Point Set" id="25" repeatmin="0" structure="id:24"/>
             <structref name="Point Set Continuation" id="27" repeatmin="0" structure="id:26"/>
             <structref name="Lit Texture Shader" id="351" repeatmin="0" structure="id:340"/>
+            <structref name="&lt;View Resource&gt;" id="387" repeatmin="0" structure="id:376"/>
             <structref name="Unknown Block" id="29" repeatmin="0" structure="id:28"/>
         </structure>
         <structure name="Generic Block" id="31" encoding="UTF-8" endian="little" signed="no" valueexpression="BlockType">
@@ -179,6 +180,31 @@ if (crtMod&gt;0):
             </structure>
             <scriptelement name="Data Padding" id="141"/>
             <scriptelement name="MetadataPadding" id="144"/>
+        </structure>
+        <structure name="View Resource" id="376" extends="id:31">
+            <number name="BlockType" mustmatch="yes" id="378" fillcolor="FF00FF" type="integer">
+                <fixedvalues>
+                    <fixedvalue name="View Resource" value="0xFFFFFF52"/>
+                </fixedvalues>
+            </number>
+            <number name="DataSize" id="379" type="integer"/>
+            <number name="MetadataSize" id="380" type="integer"/>
+            <structure name="Data" id="381">
+                <structref name="Name" id="388" structure="id:76"/>
+                <number name="PassCount" id="389" type="integer" length="4"/>
+                <structure name="Passes" id="390">
+                    <structref name="Name" id="392" structure="id:76"/>
+                    <number name="Attributes" id="393" type="integer" length="4"/>
+                    <structure name="Fog Properties" id="394">
+                        <number name="Fog Mode" id="396" type="integer" length="4"/>
+                        <structref name="RGBA" id="397" structure="id:131"/>
+                        <number name="Near Value" id="398" type="integer" length="4"/>
+                        <number name="Far Value" id="399" type="integer" length="4"/>
+                    </structure>
+                </structure>
+            </structure>
+            <scriptelement name="Data Padding" id="383"/>
+            <scriptelement name="MetadataPadding" id="386"/>
         </structure>
         <structure name="View Node" id="16" extends="id:31">
             <number name="BlockType" mustmatch="yes" id="146" type="integer">
