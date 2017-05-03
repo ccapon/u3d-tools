@@ -33,6 +33,7 @@ if (mod&gt;0):
             <structref name="CLOD Progressive Mesh Continuation" id="2551" repeatmin="0" structure="id:2550"/>
             <structref name="Group Node" id="2553" repeatmin="0" structure="id:2552"/>
             <structref name="Line Set Declaration" id="2555" repeatmin="0" structure="id:2554"/>
+            <structref name="Line Set Continuation" id="3167" repeatmin="0" structure="id:3150"/>
             <structref name="Unknown Block" id="2557" repeatmin="0" structure="id:2556"/>
         </structure>
         <structure name="Generic Block" id="2559" encoding="UTF-8" endian="little" signed="no" valueexpression="BlockType">
@@ -717,6 +718,29 @@ else:
             <structure name="BinaryData" id="3143" repeatmin="Size" repeatmax="Size">
                 <binary name="BinaryValue" id="3144" repeatmin="0" repeatmax="0" length="remaining"/>
             </structure>
+        </structure>
+        <structure name="Line Set Continuation" id="3150" extends="id:2559">
+            <number name="BlockType" mustmatch="yes" id="3152" type="integer">
+                <fixedvalues>
+                    <fixedvalue name="Line Set Continuation" value="0xFFFFFF3F"/>
+                </fixedvalues>
+            </number>
+            <number name="DataSize" id="3153" type="integer"/>
+            <number name="MetadataSize" id="3154" type="integer"/>
+            <structure name="Data" id="3155">
+                <structref name="Name" id="3168" structure="id:2570"/>
+                <number name="Chain Index" id="3169" type="integer" length="4"/>
+                <number name="StartResolution" id="3170" type="integer" length="4"/>
+                <number name="EndResolution" id="3171" type="integer" length="4"/>
+                <binary name="Line Description" id="3172" fillcolor="005500" length="remaining"/>
+            </structure>
+            <scriptelement name="Data Padding" id="3157"/>
+            <structure name="Metadata" id="3158">
+                <structure name="KVP" id="3160">
+                    <scriptelement name="Value" id="3163"/>
+                </structure>
+            </structure>
+            <scriptelement name="MetadataPadding" id="3166"/>
         </structure>
     </grammar>
 </ufwb>
