@@ -31,6 +31,7 @@ if (mod&gt;0):
             <structref name="Texture Continuation" id="32" repeatmin="0" structure="id:31"/>
             <structref name="CLOD Mesh Declaration" id="533" repeatmin="0" structure="id:516"/>
             <structref name="CLOD Progressive Mesh Continuation" id="577" repeatmin="0" structure="id:560"/>
+            <structref name="Group Node" id="598" repeatmin="0" structure="id:581"/>
             <structref name="Unknown Block" id="34" repeatmin="0" structure="id:33"/>
         </structure>
         <structure name="Generic Block" id="36" encoding="UTF-8" endian="little" signed="no" valueexpression="BlockType">
@@ -576,7 +577,7 @@ else:
             <scriptelement name="MetadataPadding" id="514"/>
         </structure>
         <structure name="CLOD Mesh Declaration" id="516" extends="id:36">
-            <number name="BlockType" mustmatch="yes" id="518" fillcolor="FF0000" type="integer">
+            <number name="BlockType" mustmatch="yes" id="518" fillcolor="005500" type="integer">
                 <description>Missing Skeleton Description</description>
                 <fixedvalues>
                     <fixedvalue name="CLOD Mesh Declaration" value="0xFFFFFF31"/>
@@ -660,6 +661,26 @@ else:
                 </structure>
             </structure>
             <scriptelement name="MetadataPadding" id="576"/>
+        </structure>
+        <structure name="Group Node" id="581" extends="id:36">
+            <number name="BlockType" mustmatch="yes" id="583" type="integer">
+                <fixedvalues>
+                    <fixedvalue name="Group Node" value="0xFFFFFF21"/>
+                </fixedvalues>
+            </number>
+            <number name="DataSize" id="584" type="integer"/>
+            <number name="MetadataSize" id="585" type="integer"/>
+            <structure name="Data" id="586">
+                <structref name="Name" id="599" structure="id:47"/>
+                <structref name="Parent Node Data" id="600" structure="id:220"/>
+            </structure>
+            <scriptelement name="Data Padding" id="588"/>
+            <structure name="Metadata" id="589">
+                <structure name="KVP" id="591">
+                    <scriptelement name="Value" id="594"/>
+                </structure>
+            </structure>
+            <scriptelement name="MetadataPadding" id="597"/>
         </structure>
     </grammar>
 </ufwb>
