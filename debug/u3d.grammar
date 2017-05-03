@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ufwb version="1.17">
-    <grammar name="U3D grammar" start="id:2516" author="belgarath" fileextension="u3d">
+    <grammar name="U3D grammar" start="id:3211" author="belgarath" fileextension="u3d">
         <description>Grammar for U3D files</description>
         <scripts>
             <script name="align4" type="Generic" id="107">
@@ -11,37 +11,38 @@ if (mod&gt;0):
     currentMapper.setCurrentOffset(crtOffset)</source>
             </script>
         </scripts>
-        <structure name="U3D file" id="2516" length="0" alignment="0" repeatmax="1000000" encoding="UTF-8" endian="little" signed="no" order="variable">
-            <structref name="Block" id="2518" structure="id:2517"/>
+        <structure name="U3D file" id="3211" length="0" alignment="0" repeatmax="1000000" encoding="UTF-8" endian="little" signed="no" order="variable">
+            <structref name="Block" id="3213" structure="id:3212"/>
         </structure>
-        <structure name="Block" id="2517" length="0" encoding="UTF-8" endian="little" signed="no" order="variable" valueexpression="BlockType">
-            <structref name="File Header" id="2521" repeatmin="0" structure="id:2520"/>
-            <structref name="Priority Update" id="2523" repeatmin="0" structure="id:2522"/>
-            <structref name="Modifier Chain" id="2525" repeatmin="0" structure="id:2524"/>
-            <structref name="Material Resource" id="2527" repeatmin="0" structure="id:2526"/>
-            <structref name="Light Resource" id="2529" repeatmin="0" structure="id:2528"/>
-            <structref name="View Node" id="2531" repeatmin="0" structure="id:2530"/>
-            <structref name="Model Node" id="2533" repeatmin="0" structure="id:2532"/>
-            <structref name="Shading Modifier" id="2535" repeatmin="0" structure="id:2534"/>
-            <structref name="Light Node" id="2537" repeatmin="0" structure="id:2536"/>
-            <structref name="Point Set" id="2539" repeatmin="0" structure="id:2538"/>
-            <structref name="Point Set Continuation" id="2541" repeatmin="0" structure="id:2540"/>
-            <structref name="Lit Texture Shader" id="2543" repeatmin="0" structure="id:2542"/>
-            <structref name="View Resource" id="2545" repeatmin="0" structure="id:2544"/>
-            <structref name="Texture Continuation" id="2547" repeatmin="0" structure="id:2546"/>
-            <structref name="CLOD Mesh Declaration" id="2549" repeatmin="0" structure="id:2548"/>
-            <structref name="CLOD Progressive Mesh Continuation" id="2551" repeatmin="0" structure="id:2550"/>
-            <structref name="Group Node" id="2553" repeatmin="0" structure="id:2552"/>
-            <structref name="Line Set Declaration" id="2555" repeatmin="0" structure="id:2554"/>
-            <structref name="Line Set Continuation" id="3167" repeatmin="0" structure="id:3150"/>
-            <structref name="Unknown Block" id="2557" repeatmin="0" structure="id:2556"/>
+        <structure name="Block" id="3212" length="0" encoding="UTF-8" endian="little" signed="no" order="variable" valueexpression="BlockType">
+            <structref name="File Header" id="3216" repeatmin="0" structure="id:3215"/>
+            <structref name="Priority Update" id="3218" repeatmin="0" structure="id:3217"/>
+            <structref name="Modifier Chain" id="3220" repeatmin="0" structure="id:3219"/>
+            <structref name="Material Resource" id="3222" repeatmin="0" structure="id:3221"/>
+            <structref name="Light Resource" id="3224" repeatmin="0" structure="id:3223"/>
+            <structref name="View Node" id="3226" repeatmin="0" structure="id:3225"/>
+            <structref name="Model Node" id="3228" repeatmin="0" structure="id:3227"/>
+            <structref name="Shading Modifier" id="3230" repeatmin="0" structure="id:3229"/>
+            <structref name="Light Node" id="3232" repeatmin="0" structure="id:3231"/>
+            <structref name="Point Set" id="3234" repeatmin="0" structure="id:3233"/>
+            <structref name="Point Set Continuation" id="3236" repeatmin="0" structure="id:3235"/>
+            <structref name="Lit Texture Shader" id="3238" repeatmin="0" structure="id:3237"/>
+            <structref name="View Resource" id="3240" repeatmin="0" structure="id:3239"/>
+            <structref name="Texture Continuation" id="3242" repeatmin="0" structure="id:3241"/>
+            <structref name="CLOD Mesh Declaration" id="3244" repeatmin="0" structure="id:3243"/>
+            <structref name="CLOD Progressive Mesh Continuation" id="3246" repeatmin="0" structure="id:3245"/>
+            <structref name="Group Node" id="3248" repeatmin="0" structure="id:3247"/>
+            <structref name="Line Set Declaration" id="3250" repeatmin="0" structure="id:3249"/>
+            <structref name="Line Set Continuation" id="3252" repeatmin="0" structure="id:3251"/>
+            <structref name="Texture Resource" id="3254" fillcolor="55AAFF" repeatmin="0" structure="id:3253"/>
+            <structref name="Unknown Block" id="3256" repeatmin="0" structure="id:3255"/>
         </structure>
-        <structure name="Generic Block" id="2559" encoding="UTF-8" endian="little" signed="no" valueexpression="BlockType">
-            <number name="BlockType" id="2560" fillcolor="55AAFF" type="integer" length="4" display="hex"/>
-            <number name="DataSize" id="2561" fillcolor="55AA7F" type="integer" length="4"/>
-            <number name="MetadataSize" id="2562" fillcolor="FFAA00" type="integer" length="4"/>
-            <structure name="Data" id="2563" length="DataSize" alignment="4"/>
-            <scriptelement name="Data Padding" id="2565">
+        <structure name="Generic Block" id="3258" encoding="UTF-8" endian="little" signed="no" valueexpression="BlockType">
+            <number name="BlockType" id="3259" fillcolor="55AAFF" type="integer" length="4" display="hex"/>
+            <number name="DataSize" id="3260" fillcolor="55AA7F" type="integer" length="4"/>
+            <number name="MetadataSize" id="3261" fillcolor="FFAA00" type="integer" length="4"/>
+            <structure name="Data" id="3262" length="DataSize" alignment="4"/>
+            <scriptelement name="Data Padding" id="3264">
                 <script name="unnamed" type="Generic">
                     <source language="Python">crtOffset = currentMapper.getCurrentOffset()
 crtMod = crtOffset%4
@@ -50,12 +51,12 @@ if (crtMod&gt;0):
     currentMapper.mapElementWithSize(elem, 4-crtMod)</source>
                 </script>
             </scriptelement>
-            <structure name="Metadata" id="2566" length="MetadataSize" alignment="4">
-                <number name="Count" id="2567" type="integer" length="4"/>
-                <structure name="KVP" id="2568" repeatmin="Count" repeatmax="Count">
-                    <number name="Attributes" id="2569" type="integer" length="4"/>
-                    <structref name="Key" id="2571" structure="id:2570"/>
-                    <scriptelement name="Value" id="2572">
+            <structure name="Metadata" id="3265" length="MetadataSize" alignment="4">
+                <number name="Count" id="3266" type="integer" length="4"/>
+                <structure name="KVP" id="3267" repeatmin="Count" repeatmax="Count">
+                    <number name="Attributes" id="3268" type="integer" length="4"/>
+                    <structref name="Key" id="3270" structure="id:3269"/>
+                    <scriptelement name="Value" id="3271">
                         <script name="unnamed" type="Generic">
                             <source language="Python">grammar = currentMapper.getCurrentGrammar()
 results = currentMapper.getCurrentResults()
@@ -72,7 +73,7 @@ else:
                     </scriptelement>
                 </structure>
             </structure>
-            <scriptelement name="MetadataPadding" id="2575">
+            <scriptelement name="MetadataPadding" id="3274">
                 <script name="unnamed" type="Generic">
                     <source language="Python">crtOffset = currentMapper.getCurrentOffset()
 crtMod = crtOffset%4
@@ -82,81 +83,81 @@ if (crtMod&gt;0):
                 </script>
             </scriptelement>
         </structure>
-        <structure name="File Header" id="2520" extends="id:2559">
-            <number name="BlockType" mustmatch="yes" id="2577" type="integer">
+        <structure name="File Header" id="3215" extends="id:3258">
+            <number name="BlockType" mustmatch="yes" id="3276" type="integer">
                 <fixedvalues>
                     <fixedvalue name="File Header" value="0x443355"/>
                 </fixedvalues>
             </number>
-            <number name="DataSize" id="2578" type="integer"/>
-            <number name="MetadataSize" id="2579" type="integer"/>
-            <structure name="Data" id="2580">
-                <number name="Major Version" id="2581" fillcolor="FFFF7F" type="integer" length="2">
+            <number name="DataSize" id="3277" type="integer"/>
+            <number name="MetadataSize" id="3278" type="integer"/>
+            <structure name="Data" id="3279">
+                <number name="Major Version" id="3280" fillcolor="FFFF7F" type="integer" length="2">
                     <description>Major version</description>
                 </number>
-                <number name="Minor Version" id="2582" fillcolor="FFFF7F" type="integer" length="2"/>
-                <number name="ProfileIdentifier" id="2583" fillcolor="AAFFFF" type="integer" length="4"/>
-                <number name="Declaration Size" id="2584" fillcolor="FFFF7F" type="integer" length="4"/>
-                <number name="File Size" id="2585" fillcolor="AAFFFF" type="integer" length="8"/>
-                <number name="Character Encoding" id="2586" fillcolor="FFFF7F" type="integer" length="4"/>
-                <structure name="Unit Scale" id="2587" repeatmin="if(and(ProfileIdentifier, 8), 1,0)" repeatmax="if(and(ProfileIdentifier, 8), 1,0)">
-                    <number name="Units Scale Factor" id="2588" fillcolor="AAFFFF" type="float" length="8"/>
+                <number name="Minor Version" id="3281" fillcolor="FFFF7F" type="integer" length="2"/>
+                <number name="ProfileIdentifier" id="3282" fillcolor="AAFFFF" type="integer" length="4"/>
+                <number name="Declaration Size" id="3283" fillcolor="FFFF7F" type="integer" length="4"/>
+                <number name="File Size" id="3284" fillcolor="AAFFFF" type="integer" length="8"/>
+                <number name="Character Encoding" id="3285" fillcolor="FFFF7F" type="integer" length="4"/>
+                <structure name="Unit Scale" id="3286" repeatmin="if(and(ProfileIdentifier, 8), 1,0)" repeatmax="if(and(ProfileIdentifier, 8), 1,0)">
+                    <number name="Units Scale Factor" id="3287" fillcolor="AAFFFF" type="float" length="8"/>
                 </structure>
             </structure>
-            <scriptelement name="Data Padding" id="2591"/>
-            <structure name="Metadata" id="2592">
-                <structure name="KVP" id="2593">
-                    <scriptelement name="Value" id="2597"/>
+            <scriptelement name="Data Padding" id="3290"/>
+            <structure name="Metadata" id="3291">
+                <structure name="KVP" id="3292">
+                    <scriptelement name="Value" id="3296"/>
                 </structure>
             </structure>
-            <scriptelement name="MetadataPadding" id="2600"/>
+            <scriptelement name="MetadataPadding" id="3299"/>
         </structure>
-        <structure name="Priority Update" id="2522" extends="id:2559">
-            <number name="BlockType" mustmatch="yes" id="2602" type="integer">
+        <structure name="Priority Update" id="3217" extends="id:3258">
+            <number name="BlockType" mustmatch="yes" id="3301" type="integer">
                 <fixedvalues>
                     <fixedvalue name="Priority Block" value="0xFFFFFF15"/>
                 </fixedvalues>
             </number>
-            <number name="DataSize" id="2603" type="integer"/>
-            <number name="MetadataSize" id="2604" type="integer"/>
-            <structure name="Data" id="2605">
-                <number name="New Priority" id="2606" type="integer" length="4"/>
+            <number name="DataSize" id="3302" type="integer"/>
+            <number name="MetadataSize" id="3303" type="integer"/>
+            <structure name="Data" id="3304">
+                <number name="New Priority" id="3305" type="integer" length="4"/>
             </structure>
-            <scriptelement name="Data Padding" id="2608"/>
-            <structure name="Metadata" id="2609">
-                <structure name="KVP" id="2610">
-                    <scriptelement name="Value" id="2614"/>
+            <scriptelement name="Data Padding" id="3307"/>
+            <structure name="Metadata" id="3308">
+                <structure name="KVP" id="3309">
+                    <scriptelement name="Value" id="3313"/>
                 </structure>
             </structure>
-            <scriptelement name="MetadataPadding" id="2617"/>
+            <scriptelement name="MetadataPadding" id="3316"/>
         </structure>
-        <structure name="Modifier Chain" id="2524" extends="id:2559">
-            <number name="BlockType" mustmatch="yes" id="2619" type="integer">
+        <structure name="Modifier Chain" id="3219" extends="id:3258">
+            <number name="BlockType" mustmatch="yes" id="3318" type="integer">
                 <fixedvalues>
                     <fixedvalue name="Modifier Chain" value="0xFFFFFF14"/>
                 </fixedvalues>
             </number>
-            <number name="DataSize" id="2620" type="integer"/>
-            <number name="MetadataSize" id="2621" type="integer"/>
-            <structure name="Data" id="2622">
-                <structref name="Name" id="2623" structure="id:2570"/>
-                <number name="Modifier Chain Type" id="2624" type="integer" length="4"/>
-                <number name="ModifierChainAttributes" id="2625" type="integer" length="4" display="hex"/>
-                <structure name="Modifier Chain Bounding Sphere" id="2626" repeatmin="if(and(ModifierChainAttributes, 1), 1,0)" repeatmax="if(and(ModifierChainAttributes, 1), 1,0)">
-                    <number name="Bounding Sphere Center X" id="2627" type="float" length="32" lengthunit="bit"/>
-                    <number name="Bounding Sphere Center Y" id="2628" type="float" length="32" lengthunit="bit"/>
-                    <number name="Bounding Sphere Center Z" id="2629" type="float" length="32" lengthunit="bit"/>
-                    <number name="Bounding Sphere Radius" id="2630" type="float" length="32" lengthunit="bit"/>
+            <number name="DataSize" id="3319" type="integer"/>
+            <number name="MetadataSize" id="3320" type="integer"/>
+            <structure name="Data" id="3321">
+                <structref name="Name" id="3322" structure="id:3269"/>
+                <number name="Modifier Chain Type" id="3323" type="integer" length="4"/>
+                <number name="ModifierChainAttributes" id="3324" type="integer" length="4" display="hex"/>
+                <structure name="Modifier Chain Bounding Sphere" id="3325" repeatmin="if(and(ModifierChainAttributes, 1), 1,0)" repeatmax="if(and(ModifierChainAttributes, 1), 1,0)">
+                    <number name="Bounding Sphere Center X" id="3326" type="float" length="32" lengthunit="bit"/>
+                    <number name="Bounding Sphere Center Y" id="3327" type="float" length="32" lengthunit="bit"/>
+                    <number name="Bounding Sphere Center Z" id="3328" type="float" length="32" lengthunit="bit"/>
+                    <number name="Bounding Sphere Radius" id="3329" type="float" length="32" lengthunit="bit"/>
                 </structure>
-                <structure name="Modifier Chain Axis Aligned BBox" id="2632" repeatmin="if(and(ModifierChainAttributes, 2), 1,0)" repeatmax="if(and(ModifierChainAttributes, 2), 1,0)">
-                    <number name="Min X" id="2633" type="float" length="32" lengthunit="bit"/>
-                    <number name="Min Y" id="2634" type="float" length="32" lengthunit="bit"/>
-                    <number name="Min Z" id="2635" type="float" length="32" lengthunit="bit"/>
-                    <number name="Max X" id="2636" type="float" length="32" lengthunit="bit"/>
-                    <number name="Max Y" id="2637" type="float" length="32" lengthunit="bit"/>
-                    <number name="Max Z" id="2638" type="float" length="32" lengthunit="bit"/>
+                <structure name="Modifier Chain Axis Aligned BBox" id="3331" repeatmin="if(and(ModifierChainAttributes, 2), 1,0)" repeatmax="if(and(ModifierChainAttributes, 2), 1,0)">
+                    <number name="Min X" id="3332" type="float" length="32" lengthunit="bit"/>
+                    <number name="Min Y" id="3333" type="float" length="32" lengthunit="bit"/>
+                    <number name="Min Z" id="3334" type="float" length="32" lengthunit="bit"/>
+                    <number name="Max X" id="3335" type="float" length="32" lengthunit="bit"/>
+                    <number name="Max Y" id="3336" type="float" length="32" lengthunit="bit"/>
+                    <number name="Max Z" id="3337" type="float" length="32" lengthunit="bit"/>
                 </structure>
-                <scriptelement name="Padding" id="2640">
+                <scriptelement name="Padding" id="3339">
                     <script name="unnamed" type="Generic">
                         <source language="Python">crtOffset = currentMapper.getCurrentOffset()
 crtMod = crtOffset%4
@@ -165,122 +166,122 @@ if (crtMod&gt;0):
     currentMapper.mapElementWithSize(elem, 4-crtMod)</source>
                     </script>
                 </scriptelement>
-                <number name="ModifierCount" id="2641" type="integer" length="4"/>
-                <structure name="DeclarationBlocks" id="2642" repeatmin="ModifierCount" repeatmax="ModifierCount">
-                    <structref name="Declaration Block" id="2643" structure="id:2517"/>
+                <number name="ModifierCount" id="3340" type="integer" length="4"/>
+                <structure name="DeclarationBlocks" id="3341" repeatmin="ModifierCount" repeatmax="ModifierCount">
+                    <structref name="Declaration Block" id="3342" structure="id:3212"/>
                 </structure>
             </structure>
-            <scriptelement name="Data Padding" id="2646"/>
-            <structure name="Metadata" id="2647">
-                <structure name="KVP" id="2648">
-                    <scriptelement name="Value" id="2652"/>
+            <scriptelement name="Data Padding" id="3345"/>
+            <structure name="Metadata" id="3346">
+                <structure name="KVP" id="3347">
+                    <scriptelement name="Value" id="3351"/>
                 </structure>
             </structure>
-            <scriptelement name="MetadataPadding" id="2655"/>
+            <scriptelement name="MetadataPadding" id="3354"/>
         </structure>
-        <structure name="Material Resource" id="2526" extends="id:2559">
-            <number name="BlockType" mustmatch="yes" id="2657" type="integer">
+        <structure name="Material Resource" id="3221" extends="id:3258">
+            <number name="BlockType" mustmatch="yes" id="3356" type="integer">
                 <fixedvalues>
                     <fixedvalue name="Material Resource" value="0xFFFFFF54"/>
                 </fixedvalues>
             </number>
-            <number name="DataSize" id="2658" type="integer"/>
-            <number name="MetadataSize" id="2659" type="integer"/>
-            <structure name="Data" id="2660">
-                <structref name="Name" id="2661" structure="id:2570"/>
-                <number name="Attributes" id="2662" type="integer" length="4"/>
-                <structref name="Ambient Color" id="2664" structure="id:2663"/>
-                <structref name="Diffuse Color" id="2665" structure="id:2663"/>
-                <structref name="Specular Color" id="2666" structure="id:2663"/>
-                <structref name="Emissive Color" id="2667" structure="id:2663"/>
-                <number name="Reflectivity" id="2668" type="float" length="32" lengthunit="bit"/>
-                <number name="Opacity" id="2669" type="float" length="32" lengthunit="bit"/>
+            <number name="DataSize" id="3357" type="integer"/>
+            <number name="MetadataSize" id="3358" type="integer"/>
+            <structure name="Data" id="3359">
+                <structref name="Name" id="3360" structure="id:3269"/>
+                <number name="Attributes" id="3361" type="integer" length="4"/>
+                <structref name="Ambient Color" id="3363" structure="id:3362"/>
+                <structref name="Diffuse Color" id="3364" structure="id:3362"/>
+                <structref name="Specular Color" id="3365" structure="id:3362"/>
+                <structref name="Emissive Color" id="3366" structure="id:3362"/>
+                <number name="Reflectivity" id="3367" type="float" length="32" lengthunit="bit"/>
+                <number name="Opacity" id="3368" type="float" length="32" lengthunit="bit"/>
             </structure>
-            <scriptelement name="Data Padding" id="2671"/>
-            <structure name="Metadata" id="2672">
-                <structure name="KVP" id="2673">
-                    <scriptelement name="Value" id="2677"/>
+            <scriptelement name="Data Padding" id="3370"/>
+            <structure name="Metadata" id="3371">
+                <structure name="KVP" id="3372">
+                    <scriptelement name="Value" id="3376"/>
                 </structure>
             </structure>
-            <scriptelement name="MetadataPadding" id="2680"/>
+            <scriptelement name="MetadataPadding" id="3379"/>
         </structure>
-        <structure name="Light Resource" id="2528" extends="id:2559">
-            <number name="BlockType" mustmatch="yes" id="2682" type="integer">
+        <structure name="Light Resource" id="3223" extends="id:3258">
+            <number name="BlockType" mustmatch="yes" id="3381" type="integer">
                 <fixedvalues>
                     <fixedvalue name="Light Resource" value="0xFFFFFF51"/>
                 </fixedvalues>
             </number>
-            <number name="DataSize" id="2683" type="integer"/>
-            <number name="MetadataSize" id="2684" type="integer"/>
-            <structure name="Data" id="2685">
-                <structref name="Name" id="2686" structure="id:2570"/>
-                <number name="Attributes" id="2687" type="integer" length="4"/>
-                <number name="Type" id="2688" type="integer" length="1"/>
-                <structref name="Light Color" id="2690" structure="id:2689"/>
-                <structure name="Attenuation" id="2691">
-                    <number name="Constant" id="2692" type="float" length="32" lengthunit="bit"/>
-                    <number name="Linear" id="2693" type="float" length="32" lengthunit="bit"/>
-                    <number name="Quadratic" id="2694" type="float" length="32" lengthunit="bit"/>
+            <number name="DataSize" id="3382" type="integer"/>
+            <number name="MetadataSize" id="3383" type="integer"/>
+            <structure name="Data" id="3384">
+                <structref name="Name" id="3385" structure="id:3269"/>
+                <number name="Attributes" id="3386" type="integer" length="4"/>
+                <number name="Type" id="3387" type="integer" length="1"/>
+                <structref name="Light Color" id="3389" structure="id:3388"/>
+                <structure name="Attenuation" id="3390">
+                    <number name="Constant" id="3391" type="float" length="32" lengthunit="bit"/>
+                    <number name="Linear" id="3392" type="float" length="32" lengthunit="bit"/>
+                    <number name="Quadratic" id="3393" type="float" length="32" lengthunit="bit"/>
                 </structure>
-                <number name="Spot Angle" id="2696" type="float" length="32" lengthunit="bit"/>
-                <number name="Intensity" id="2697" type="float" length="32" lengthunit="bit"/>
+                <number name="Spot Angle" id="3395" type="float" length="32" lengthunit="bit"/>
+                <number name="Intensity" id="3396" type="float" length="32" lengthunit="bit"/>
             </structure>
-            <scriptelement name="Data Padding" id="2699"/>
-            <structure name="Metadata" id="2700">
-                <structure name="KVP" id="2701">
-                    <scriptelement name="Value" id="2705"/>
+            <scriptelement name="Data Padding" id="3398"/>
+            <structure name="Metadata" id="3399">
+                <structure name="KVP" id="3400">
+                    <scriptelement name="Value" id="3404"/>
                 </structure>
             </structure>
-            <scriptelement name="MetadataPadding" id="2708"/>
+            <scriptelement name="MetadataPadding" id="3407"/>
         </structure>
-        <structure name="View Resource" id="2544" extends="id:2559">
-            <number name="BlockType" mustmatch="yes" id="2710" type="integer">
+        <structure name="View Resource" id="3239" extends="id:3258">
+            <number name="BlockType" mustmatch="yes" id="3409" type="integer">
                 <fixedvalues>
                     <fixedvalue name="View Resource" value="0xFFFFFF52"/>
                 </fixedvalues>
             </number>
-            <number name="DataSize" id="2711" type="integer"/>
-            <number name="MetadataSize" id="2712" type="integer"/>
-            <structure name="Data" id="2713">
-                <structref name="Name" id="2714" structure="id:2570"/>
-                <number name="PassCount" id="2715" type="integer" length="4"/>
-                <structure name="Passes" id="2716">
-                    <structref name="Name" id="2717" structure="id:2570"/>
-                    <number name="Attributes" id="2718" type="integer" length="4"/>
-                    <structure name="Fog Properties" id="2719">
-                        <number name="Fog Mode" id="2720" type="integer" length="4"/>
-                        <structref name="RGBA" id="2721" structure="id:2689"/>
-                        <number name="Near Value" id="2722" type="integer" length="4"/>
-                        <number name="Far Value" id="2723" type="integer" length="4"/>
+            <number name="DataSize" id="3410" type="integer"/>
+            <number name="MetadataSize" id="3411" type="integer"/>
+            <structure name="Data" id="3412">
+                <structref name="Name" id="3413" structure="id:3269"/>
+                <number name="PassCount" id="3414" type="integer" length="4"/>
+                <structure name="Passes" id="3415">
+                    <structref name="Name" id="3416" structure="id:3269"/>
+                    <number name="Attributes" id="3417" type="integer" length="4"/>
+                    <structure name="Fog Properties" id="3418">
+                        <number name="Fog Mode" id="3419" type="integer" length="4"/>
+                        <structref name="RGBA" id="3420" structure="id:3388"/>
+                        <number name="Near Value" id="3421" type="integer" length="4"/>
+                        <number name="Far Value" id="3422" type="integer" length="4"/>
                     </structure>
                 </structure>
             </structure>
-            <scriptelement name="Data Padding" id="2727"/>
-            <structure name="Metadata" id="2728">
-                <structure name="KVP" id="2729">
-                    <scriptelement name="Value" id="2733"/>
+            <scriptelement name="Data Padding" id="3426"/>
+            <structure name="Metadata" id="3427">
+                <structure name="KVP" id="3428">
+                    <scriptelement name="Value" id="3432"/>
                 </structure>
             </structure>
-            <scriptelement name="MetadataPadding" id="2736"/>
+            <scriptelement name="MetadataPadding" id="3435"/>
         </structure>
-        <structure name="View Node" id="2530" extends="id:2559">
-            <number name="BlockType" mustmatch="yes" id="2738" type="integer">
+        <structure name="View Node" id="3225" extends="id:3258">
+            <number name="BlockType" mustmatch="yes" id="3437" type="integer">
                 <fixedvalues>
                     <fixedvalue name="View Node" value="0xFFFFFF24"/>
                 </fixedvalues>
             </number>
-            <number name="DataSize" id="2739" type="integer"/>
-            <number name="MetadataSize" id="2740" type="integer"/>
-            <structure name="Data" id="2741">
-                <structref name="Name" id="2742" structure="id:2570"/>
-                <structref name="Parent Node Data" id="2744" structure="id:2743"/>
-                <structref name="View Resource Name" id="2745" structure="id:2570"/>
-                <number name="View Node Attributes" id="2746" type="integer" length="4"/>
-                <structure name="View Clipping" id="2747">
-                    <number name="Near Clip" id="2748" type="float" length="32" lengthunit="bit"/>
-                    <number name="Far Clip" id="2749" type="float" length="32" lengthunit="bit"/>
+            <number name="DataSize" id="3438" type="integer"/>
+            <number name="MetadataSize" id="3439" type="integer"/>
+            <structure name="Data" id="3440">
+                <structref name="Name" id="3441" structure="id:3269"/>
+                <structref name="Parent Node Data" id="3443" structure="id:3442"/>
+                <structref name="View Resource Name" id="3444" structure="id:3269"/>
+                <number name="View Node Attributes" id="3445" type="integer" length="4"/>
+                <structure name="View Clipping" id="3446">
+                    <number name="Near Clip" id="3447" type="float" length="32" lengthunit="bit"/>
+                    <number name="Far Clip" id="3448" type="float" length="32" lengthunit="bit"/>
                 </structure>
-                <scriptelement name="View Projection" id="2751">
+                <scriptelement name="View Projection" id="3450">
                     <script name="unnamed" type="Generic">
                         <source language="Python">results = currentMapper.getCurrentResults()
 attrs = results.getResultByName(&quot;View Node Attributes&quot;).getValue().getUnsignedNumber()
@@ -300,447 +301,497 @@ else:
 </source>
                     </script>
                 </scriptelement>
-                <structure name="Viewport" id="2752">
-                    <number name="Width" id="2753" type="float" length="32" lengthunit="bit"/>
-                    <number name="Height" id="2754" type="float" length="32" lengthunit="bit"/>
-                    <number name="X" id="2755" type="float" length="32" lengthunit="bit"/>
-                    <number name="Y" id="2756" type="float" length="32" lengthunit="bit"/>
+                <structure name="Viewport" id="3451">
+                    <number name="Width" id="3452" type="float" length="32" lengthunit="bit"/>
+                    <number name="Height" id="3453" type="float" length="32" lengthunit="bit"/>
+                    <number name="X" id="3454" type="float" length="32" lengthunit="bit"/>
+                    <number name="Y" id="3455" type="float" length="32" lengthunit="bit"/>
                 </structure>
-                <number name="BackdropCount" id="2758" type="integer" length="4"/>
-                <structure name="Backdrop Properties" id="2759" repeatmin="BackdropCount" repeatmax="BackdropCount">
-                    <structref name="Name" id="2760" structure="id:2570"/>
-                    <number name="Texture Blend" id="2761" type="float" length="32" lengthunit="bit"/>
-                    <number name="Rotation" id="2762" type="float" length="32" lengthunit="bit"/>
-                    <number name="Location X" id="2763" type="float" length="32" lengthunit="bit"/>
-                    <number name="Location Y" id="2764" type="float" length="32" lengthunit="bit"/>
-                    <number name="RegPoint X" id="2765" type="integer" length="4" signed="yes"/>
-                    <number name="RegPoint Y" id="2766" type="integer" length="4" signed="yes"/>
-                    <number name="Scale X" id="2767" type="float" length="32" lengthunit="bit"/>
-                    <number name="Scale Y" id="2768" type="float" length="32" lengthunit="bit"/>
+                <number name="BackdropCount" id="3457" type="integer" length="4"/>
+                <structure name="Backdrop Properties" id="3458" repeatmin="BackdropCount" repeatmax="BackdropCount">
+                    <structref name="Name" id="3459" structure="id:3269"/>
+                    <number name="Texture Blend" id="3460" type="float" length="32" lengthunit="bit"/>
+                    <number name="Rotation" id="3461" type="float" length="32" lengthunit="bit"/>
+                    <number name="Location X" id="3462" type="float" length="32" lengthunit="bit"/>
+                    <number name="Location Y" id="3463" type="float" length="32" lengthunit="bit"/>
+                    <number name="RegPoint X" id="3464" type="integer" length="4" signed="yes"/>
+                    <number name="RegPoint Y" id="3465" type="integer" length="4" signed="yes"/>
+                    <number name="Scale X" id="3466" type="float" length="32" lengthunit="bit"/>
+                    <number name="Scale Y" id="3467" type="float" length="32" lengthunit="bit"/>
                 </structure>
-                <number name="OverlayCount" id="2770" type="integer" length="4"/>
-                <structure name="Overlay Properties" id="2771" repeatmin="OverlayCount" repeatmax="OverlayCount">
-                    <structref name="Name" id="2772" structure="id:2570"/>
-                    <number name="Texture Blend" id="2773" type="float" length="32" lengthunit="bit"/>
-                    <number name="Rotation" id="2774" type="float" length="32" lengthunit="bit"/>
-                    <number name="Location X" id="2775" type="float" length="32" lengthunit="bit"/>
-                    <number name="Location Y" id="2776" type="float" length="32" lengthunit="bit"/>
-                    <number name="RegPoint X" id="2777" type="integer" length="4" signed="yes"/>
-                    <number name="RegPoint Y" id="2778" type="integer" length="4" signed="yes"/>
-                    <number name="Scale X" id="2779" type="float" length="32" lengthunit="bit"/>
-                    <number name="Scale Y" id="2780" type="float" length="32" lengthunit="bit"/>
-                </structure>
-            </structure>
-            <scriptelement name="Data Padding" id="2783"/>
-            <structure name="Metadata" id="2784">
-                <structure name="KVP" id="2785">
-                    <scriptelement name="Value" id="2789"/>
+                <number name="OverlayCount" id="3469" type="integer" length="4"/>
+                <structure name="Overlay Properties" id="3470" repeatmin="OverlayCount" repeatmax="OverlayCount">
+                    <structref name="Name" id="3471" structure="id:3269"/>
+                    <number name="Texture Blend" id="3472" type="float" length="32" lengthunit="bit"/>
+                    <number name="Rotation" id="3473" type="float" length="32" lengthunit="bit"/>
+                    <number name="Location X" id="3474" type="float" length="32" lengthunit="bit"/>
+                    <number name="Location Y" id="3475" type="float" length="32" lengthunit="bit"/>
+                    <number name="RegPoint X" id="3476" type="integer" length="4" signed="yes"/>
+                    <number name="RegPoint Y" id="3477" type="integer" length="4" signed="yes"/>
+                    <number name="Scale X" id="3478" type="float" length="32" lengthunit="bit"/>
+                    <number name="Scale Y" id="3479" type="float" length="32" lengthunit="bit"/>
                 </structure>
             </structure>
-            <scriptelement name="MetadataPadding" id="2792"/>
+            <scriptelement name="Data Padding" id="3482"/>
+            <structure name="Metadata" id="3483">
+                <structure name="KVP" id="3484">
+                    <scriptelement name="Value" id="3488"/>
+                </structure>
+            </structure>
+            <scriptelement name="MetadataPadding" id="3491"/>
         </structure>
-        <structure name="Model Node" id="2532" extends="id:2559">
-            <number name="BlockType" mustmatch="yes" id="2794" type="integer">
+        <structure name="Model Node" id="3227" extends="id:3258">
+            <number name="BlockType" mustmatch="yes" id="3493" type="integer">
                 <fixedvalues>
                     <fixedvalue name="Model Node" value="0xFFFFFF22"/>
                 </fixedvalues>
             </number>
-            <number name="DataSize" id="2795" type="integer"/>
-            <number name="MetadataSize" id="2796" type="integer"/>
-            <structure name="Data" id="2797">
-                <structref name="Name" id="2798" structure="id:2570"/>
-                <structref name="Parent Node Data" id="2799" structure="id:2743"/>
-                <structref name="Model Resource Name" id="2800" structure="id:2570"/>
-                <number name="Visibility" id="2801" type="integer" length="4"/>
+            <number name="DataSize" id="3494" type="integer"/>
+            <number name="MetadataSize" id="3495" type="integer"/>
+            <structure name="Data" id="3496">
+                <structref name="Name" id="3497" structure="id:3269"/>
+                <structref name="Parent Node Data" id="3498" structure="id:3442"/>
+                <structref name="Model Resource Name" id="3499" structure="id:3269"/>
+                <number name="Visibility" id="3500" type="integer" length="4"/>
             </structure>
-            <scriptelement name="Data Padding" id="2803"/>
-            <structure name="Metadata" id="2804">
-                <structure name="KVP" id="2805">
-                    <scriptelement name="Value" id="2809"/>
+            <scriptelement name="Data Padding" id="3502"/>
+            <structure name="Metadata" id="3503">
+                <structure name="KVP" id="3504">
+                    <scriptelement name="Value" id="3508"/>
                 </structure>
             </structure>
-            <scriptelement name="MetadataPadding" id="2812"/>
+            <scriptelement name="MetadataPadding" id="3511"/>
         </structure>
-        <structure name="Light Node" id="2536" extends="id:2559">
-            <number name="BlockType" mustmatch="yes" id="2814" type="integer">
+        <structure name="Light Node" id="3231" extends="id:3258">
+            <number name="BlockType" mustmatch="yes" id="3513" type="integer">
                 <fixedvalues>
                     <fixedvalue name="Light Node" value="0xFFFFFF23"/>
                 </fixedvalues>
             </number>
-            <number name="DataSize" id="2815" type="integer"/>
-            <number name="MetadataSize" id="2816" type="integer"/>
-            <structure name="Data" id="2817">
-                <structref name="Name" id="2818" structure="id:2570"/>
-                <structref name="Parent Node Data" id="2819" structure="id:2743"/>
-                <structref name="Light Resource Name" id="2820" structure="id:2570"/>
+            <number name="DataSize" id="3514" type="integer"/>
+            <number name="MetadataSize" id="3515" type="integer"/>
+            <structure name="Data" id="3516">
+                <structref name="Name" id="3517" structure="id:3269"/>
+                <structref name="Parent Node Data" id="3518" structure="id:3442"/>
+                <structref name="Light Resource Name" id="3519" structure="id:3269"/>
             </structure>
-            <scriptelement name="Data Padding" id="2822"/>
-            <structure name="Metadata" id="2823">
-                <structure name="KVP" id="2824">
-                    <scriptelement name="Value" id="2828"/>
+            <scriptelement name="Data Padding" id="3521"/>
+            <structure name="Metadata" id="3522">
+                <structure name="KVP" id="3523">
+                    <scriptelement name="Value" id="3527"/>
                 </structure>
             </structure>
-            <scriptelement name="MetadataPadding" id="2831"/>
+            <scriptelement name="MetadataPadding" id="3530"/>
         </structure>
-        <structure name="Shading Modifier" id="2534" extends="id:2559">
-            <number name="BlockType" mustmatch="yes" id="2833" type="integer">
+        <structure name="Shading Modifier" id="3229" extends="id:3258">
+            <number name="BlockType" mustmatch="yes" id="3532" type="integer">
                 <fixedvalues>
                     <fixedvalue name="Shading Modifier" value="0xFFFFFF45"/>
                 </fixedvalues>
             </number>
-            <number name="DataSize" id="2834" type="integer"/>
-            <number name="MetadataSize" id="2835" type="integer"/>
-            <structure name="Data" id="2836">
-                <structref name="Name" id="2837" structure="id:2570"/>
-                <number name="Chain Index" id="2838" type="integer" length="4"/>
-                <number name="Attributes" id="2839" type="integer" length="4"/>
-                <number name="ShaderListCount" id="2840" type="integer" length="4"/>
-                <structure name="ShaderLists" id="2841" repeatmin="ShaderListCount" repeatmax="ShaderListCount">
-                    <number name="ShaderCount" id="2842" type="integer" length="4"/>
-                    <structure name="Shaders" id="2843" repeatmin="ShaderCount" repeatmax="ShaderCount">
-                        <structref name="Name" id="2844" structure="id:2570"/>
+            <number name="DataSize" id="3533" type="integer"/>
+            <number name="MetadataSize" id="3534" type="integer"/>
+            <structure name="Data" id="3535">
+                <structref name="Name" id="3536" structure="id:3269"/>
+                <number name="Chain Index" id="3537" type="integer" length="4"/>
+                <number name="Attributes" id="3538" type="integer" length="4"/>
+                <number name="ShaderListCount" id="3539" type="integer" length="4"/>
+                <structure name="ShaderLists" id="3540" repeatmin="ShaderListCount" repeatmax="ShaderListCount">
+                    <number name="ShaderCount" id="3541" type="integer" length="4"/>
+                    <structure name="Shaders" id="3542" repeatmin="ShaderCount" repeatmax="ShaderCount">
+                        <structref name="Name" id="3543" structure="id:3269"/>
                     </structure>
                 </structure>
             </structure>
-            <scriptelement name="Data Padding" id="2848"/>
-            <structure name="Metadata" id="2849">
-                <structure name="KVP" id="2850">
-                    <scriptelement name="Value" id="2854"/>
+            <scriptelement name="Data Padding" id="3547"/>
+            <structure name="Metadata" id="3548">
+                <structure name="KVP" id="3549">
+                    <scriptelement name="Value" id="3553"/>
                 </structure>
             </structure>
-            <scriptelement name="MetadataPadding" id="2857"/>
+            <scriptelement name="MetadataPadding" id="3556"/>
         </structure>
-        <structure name="Lit Texture Shader" id="2542" extends="id:2559">
-            <number name="BlockType" mustmatch="yes" id="2859" type="integer">
+        <structure name="Lit Texture Shader" id="3237" extends="id:3258">
+            <number name="BlockType" mustmatch="yes" id="3558" type="integer">
                 <fixedvalues>
                     <fixedvalue name="Lit Texture Shader" value="0xFFFFFF53"/>
                 </fixedvalues>
             </number>
-            <number name="DataSize" id="2860" type="integer"/>
-            <number name="MetadataSize" id="2861" type="integer"/>
-            <structure name="Data" id="2862">
-                <structref name="Name" id="2863" structure="id:2570"/>
-                <number name="Attributes" id="2864" type="integer" length="4"/>
-                <number name="Alpha Test Reference" id="2865" type="integer" length="4"/>
-                <number name="Alpha Test Function" id="2866" type="integer" length="4" display="hex"/>
-                <number name="Color Blend Function" id="2867" type="integer" length="4" display="hex"/>
-                <number name="Render Pass Enabled Flags" id="2868" type="integer" length="4"/>
-                <number name="ShaderChannels" id="2869" type="integer" length="4"/>
-                <number name="Alpha Texture Channels" id="2870" type="integer" length="4"/>
-                <structref name="Material Name" id="2871" structure="id:2570"/>
-                <structure name="Texture Informations" id="2872" repeatmin="ShaderChannels" repeatmax="ShaderChannels">
-                    <structref name="Name" id="2873" structure="id:2570"/>
-                    <number name="Intensity" id="2874" type="float" length="32" lengthunit="bit"/>
-                    <number name="Blend Function" id="2875" type="integer" length="1"/>
-                    <number name="Blend Source" id="2876" type="integer" length="1"/>
-                    <number name="Blend Constant" id="2877" type="integer" length="4"/>
-                    <number name="Texture Mode" id="2878" type="integer" length="1" display="hex"/>
-                    <structure name="Texture Transform Matrix" id="2879" length="0">
-                        <number name="Texture Transform Matrix Element" id="2880" repeatmin="16" repeatmax="16" type="float" length="32" lengthunit="bit"/>
+            <number name="DataSize" id="3559" type="integer"/>
+            <number name="MetadataSize" id="3560" type="integer"/>
+            <structure name="Data" id="3561">
+                <structref name="Name" id="3562" structure="id:3269"/>
+                <number name="Attributes" id="3563" type="integer" length="4"/>
+                <number name="Alpha Test Reference" id="3564" type="integer" length="4"/>
+                <number name="Alpha Test Function" id="3565" type="integer" length="4" display="hex"/>
+                <number name="Color Blend Function" id="3566" type="integer" length="4" display="hex"/>
+                <number name="Render Pass Enabled Flags" id="3567" type="integer" length="4"/>
+                <number name="ShaderChannels" id="3568" type="integer" length="4"/>
+                <number name="Alpha Texture Channels" id="3569" type="integer" length="4"/>
+                <structref name="Material Name" id="3570" structure="id:3269"/>
+                <structure name="Texture Informations" id="3571" repeatmin="ShaderChannels" repeatmax="ShaderChannels">
+                    <structref name="Name" id="3572" structure="id:3269"/>
+                    <number name="Intensity" id="3573" type="float" length="32" lengthunit="bit"/>
+                    <number name="Blend Function" id="3574" type="integer" length="1"/>
+                    <number name="Blend Source" id="3575" type="integer" length="1"/>
+                    <number name="Blend Constant" id="3576" type="integer" length="4"/>
+                    <number name="Texture Mode" id="3577" type="integer" length="1" display="hex"/>
+                    <structure name="Texture Transform Matrix" id="3578" length="0">
+                        <number name="Texture Transform Matrix Element" id="3579" repeatmin="16" repeatmax="16" type="float" length="32" lengthunit="bit"/>
                     </structure>
-                    <structure name="Texture Wrap Transform Matrix" id="2882">
-                        <number name="Texture Wrap Transform Matrix Element" id="2883" repeatmin="16" repeatmax="16" type="float" length="32" lengthunit="bit"/>
+                    <structure name="Texture Wrap Transform Matrix" id="3581">
+                        <number name="Texture Wrap Transform Matrix Element" id="3582" repeatmin="16" repeatmax="16" type="float" length="32" lengthunit="bit"/>
                     </structure>
-                    <number name="Texture Repeat" id="2885" type="integer" length="1" display="hex"/>
+                    <number name="Texture Repeat" id="3584" type="integer" length="1" display="hex"/>
                 </structure>
             </structure>
-            <scriptelement name="Data Padding" id="2888"/>
-            <structure name="Metadata" id="2889">
-                <structure name="KVP" id="2890">
-                    <scriptelement name="Value" id="2894"/>
+            <scriptelement name="Data Padding" id="3587"/>
+            <structure name="Metadata" id="3588">
+                <structure name="KVP" id="3589">
+                    <scriptelement name="Value" id="3593"/>
                 </structure>
             </structure>
-            <scriptelement name="MetadataPadding" id="2897"/>
+            <scriptelement name="MetadataPadding" id="3596"/>
         </structure>
-        <structure name="Point Set" id="2538" extends="id:2559" fillcolor="55AAFF">
-            <number name="BlockType" mustmatch="yes" id="2899" type="integer">
+        <structure name="Point Set" id="3233" extends="id:3258" fillcolor="55AAFF">
+            <number name="BlockType" mustmatch="yes" id="3598" type="integer">
                 <fixedvalues>
                     <fixedvalue name="Point Set" value="0xFFFFFF36"/>
                 </fixedvalues>
             </number>
-            <number name="DataSize" id="2900" type="integer"/>
-            <number name="MetadataSize" id="2901" type="integer"/>
-            <structure name="Data" id="2902">
-                <structref name="Name" id="2903" structure="id:2570"/>
-                <number name="Chain Index" id="2904" type="integer" length="4"/>
-                <structure name="Point Set Description" id="2905">
-                    <number name="Reserved" id="2906" type="integer" length="4"/>
-                    <number name="Point Count" id="2907" type="integer" length="4"/>
-                    <number name="Position Count" id="2908" type="integer" length="4"/>
-                    <number name="Normal Count" id="2909" type="integer" length="4"/>
-                    <number name="Diffuse Color Count" id="2910" type="integer" length="4"/>
-                    <number name="Specular Color Count" id="2911" type="integer" length="4"/>
-                    <number name="Texture Coord Count" id="2912" type="integer" length="4"/>
-                    <number name="ShadingListCount" id="2913" type="integer" length="4"/>
-                    <structure name="ShadingList" id="2914" repeatmin="ShadingListCount" repeatmax="ShadingListCount">
-                        <structref name="Shading Description" id="2916" structure="id:2915"/>
+            <number name="DataSize" id="3599" type="integer"/>
+            <number name="MetadataSize" id="3600" type="integer"/>
+            <structure name="Data" id="3601">
+                <structref name="Name" id="3602" structure="id:3269"/>
+                <number name="Chain Index" id="3603" type="integer" length="4"/>
+                <structure name="Point Set Description" id="3604">
+                    <number name="Reserved" id="3605" type="integer" length="4"/>
+                    <number name="Point Count" id="3606" type="integer" length="4"/>
+                    <number name="Position Count" id="3607" type="integer" length="4"/>
+                    <number name="Normal Count" id="3608" type="integer" length="4"/>
+                    <number name="Diffuse Color Count" id="3609" type="integer" length="4"/>
+                    <number name="Specular Color Count" id="3610" type="integer" length="4"/>
+                    <number name="Texture Coord Count" id="3611" type="integer" length="4"/>
+                    <number name="ShadingListCount" id="3612" type="integer" length="4"/>
+                    <structure name="ShadingList" id="3613" repeatmin="ShadingListCount" repeatmax="ShadingListCount">
+                        <structref name="Shading Description" id="3615" structure="id:3614"/>
                     </structure>
-                    <structref name="Resource Description" id="2919" structure="id:2918"/>
+                    <structref name="Resource Description" id="3618" structure="id:3617"/>
                 </structure>
-                <structure name="Skeleton Description" id="2921">
-                    <number name="Count" id="2922" type="integer" length="4"/>
-                    <structure name="Bones" id="2923" repeatmin="Count" repeatmax="Count"/>
-                </structure>
-            </structure>
-            <scriptelement name="Data Padding" id="2927"/>
-            <structure name="Metadata" id="2928">
-                <structure name="KVP" id="2929">
-                    <scriptelement name="Value" id="2933"/>
+                <structure name="Skeleton Description" id="3620">
+                    <number name="Count" id="3621" type="integer" length="4"/>
+                    <structure name="Bones" id="3622" repeatmin="Count" repeatmax="Count"/>
                 </structure>
             </structure>
-            <scriptelement name="MetadataPadding" id="2936"/>
+            <scriptelement name="Data Padding" id="3626"/>
+            <structure name="Metadata" id="3627">
+                <structure name="KVP" id="3628">
+                    <scriptelement name="Value" id="3632"/>
+                </structure>
+            </structure>
+            <scriptelement name="MetadataPadding" id="3635"/>
         </structure>
-        <structure name="Point Set Continuation" id="2540" extends="id:2559">
-            <number name="BlockType" mustmatch="yes" id="2938" type="integer">
+        <structure name="Point Set Continuation" id="3235" extends="id:3258">
+            <number name="BlockType" mustmatch="yes" id="3637" type="integer">
                 <fixedvalues>
                     <fixedvalue name="Point Set Continuation" value="0xFFFFFF3E"/>
                 </fixedvalues>
             </number>
-            <number name="DataSize" id="2939" type="integer"/>
-            <number name="MetadataSize" id="2940" type="integer"/>
-            <structure name="Data" id="2941">
-                <structref name="Name" id="2942" structure="id:2570"/>
-                <number name="Chain Index" id="2943" type="integer" length="4"/>
-                <number name="StartResolution" id="2944" type="integer" length="4"/>
-                <number name="EndResolution" id="2945" type="integer" length="4"/>
-                <binary name="Skeleton Info" id="2946" fillcolor="005500" length="remaining"/>
+            <number name="DataSize" id="3638" type="integer"/>
+            <number name="MetadataSize" id="3639" type="integer"/>
+            <structure name="Data" id="3640">
+                <structref name="Name" id="3641" structure="id:3269"/>
+                <number name="Chain Index" id="3642" type="integer" length="4"/>
+                <number name="StartResolution" id="3643" type="integer" length="4"/>
+                <number name="EndResolution" id="3644" type="integer" length="4"/>
+                <binary name="Skeleton Info" id="3645" fillcolor="005500" length="remaining"/>
             </structure>
-            <scriptelement name="Data Padding" id="2948"/>
-            <structure name="Metadata" id="2949">
-                <structure name="KVP" id="2950">
-                    <scriptelement name="Value" id="2954"/>
+            <scriptelement name="Data Padding" id="3647"/>
+            <structure name="Metadata" id="3648">
+                <structure name="KVP" id="3649">
+                    <scriptelement name="Value" id="3653"/>
                 </structure>
             </structure>
-            <scriptelement name="MetadataPadding" id="2957"/>
+            <scriptelement name="MetadataPadding" id="3656"/>
         </structure>
-        <structure name="Unknown Block" id="2556" extends="id:2559">
-            <number name="BlockType" id="2959" fillcolor="AA0000" type="integer">
+        <structure name="Unknown Block" id="3255" extends="id:3258">
+            <number name="BlockType" id="3658" fillcolor="AA0000" type="integer">
                 <fixedvalues/>
             </number>
-            <number name="DataSize" id="2960" type="integer"/>
-            <number name="MetadataSize" id="2961" type="integer"/>
-            <scriptelement name="Data Padding" id="2964"/>
-            <structure name="Metadata" id="2965">
-                <structure name="KVP" id="2966">
-                    <scriptelement name="Value" id="2970"/>
+            <number name="DataSize" id="3659" type="integer"/>
+            <number name="MetadataSize" id="3660" type="integer"/>
+            <scriptelement name="Data Padding" id="3663"/>
+            <structure name="Metadata" id="3664">
+                <structure name="KVP" id="3665">
+                    <scriptelement name="Value" id="3669"/>
                 </structure>
             </structure>
-            <scriptelement name="MetadataPadding" id="2973"/>
+            <scriptelement name="MetadataPadding" id="3672"/>
         </structure>
-        <structure name="Texture Continuation" id="2546" extends="id:2559">
-            <number name="BlockType" mustmatch="yes" id="2975" type="integer">
+        <structure name="Texture Continuation" id="3241" extends="id:3258">
+            <number name="BlockType" mustmatch="yes" id="3674" type="integer">
                 <fixedvalues>
                     <fixedvalue name="Texture Continuation" value="0xFFFFFF5C"/>
                 </fixedvalues>
             </number>
-            <number name="DataSize" id="2976" type="integer"/>
-            <number name="MetadataSize" id="2977" type="integer"/>
-            <structure name="Data" id="2978">
-                <structref name="Name" id="2979" structure="id:2570"/>
-                <number name="Index" id="2980" type="integer" length="4"/>
-                <binary name="ImageData" id="2981" length="remaining"/>
+            <number name="DataSize" id="3675" type="integer"/>
+            <number name="MetadataSize" id="3676" type="integer"/>
+            <structure name="Data" id="3677">
+                <structref name="Name" id="3678" structure="id:3269"/>
+                <number name="Index" id="3679" type="integer" length="4"/>
+                <binary name="ImageData" id="3680" length="remaining"/>
             </structure>
-            <scriptelement name="Data Padding" id="2983"/>
-            <structure name="Metadata" id="2984">
-                <structure name="KVP" id="2985">
-                    <scriptelement name="Value" id="2989"/>
+            <scriptelement name="Data Padding" id="3682"/>
+            <structure name="Metadata" id="3683">
+                <structure name="KVP" id="3684">
+                    <scriptelement name="Value" id="3688"/>
                 </structure>
             </structure>
-            <scriptelement name="MetadataPadding" id="2992"/>
+            <scriptelement name="MetadataPadding" id="3691"/>
         </structure>
-        <structure name="CLOD Mesh Declaration" id="2548" extends="id:2559">
-            <number name="BlockType" mustmatch="yes" id="2994" fillcolor="005500" type="integer">
+        <structure name="CLOD Mesh Declaration" id="3243" extends="id:3258">
+            <number name="BlockType" mustmatch="yes" id="3693" fillcolor="005500" type="integer">
                 <description>Missing Skeleton Description</description>
                 <fixedvalues>
                     <fixedvalue name="CLOD Mesh Declaration" value="0xFFFFFF31"/>
                 </fixedvalues>
             </number>
-            <number name="DataSize" id="2995" type="integer"/>
-            <number name="MetadataSize" id="2996" type="integer"/>
-            <structure name="Data" id="2997">
-                <structref name="Mesh Name" id="2998" structure="id:2570"/>
-                <number name="Chain Index" id="2999" type="integer" length="4"/>
-                <structure name="Max Mesh Description" id="3000">
-                    <number name="Mesh Attributes" id="3001" type="integer" length="4"/>
-                    <number name="Face Count" id="3002" type="integer" length="4"/>
-                    <number name="Position Count" id="3003" type="integer" length="4"/>
-                    <number name="Normal Count" id="3004" type="integer" length="4"/>
-                    <number name="Diffuse Color Count" id="3005" type="integer" length="4"/>
-                    <number name="Specular Color Count" id="3006" type="integer" length="4"/>
-                    <number name="Texture Coord Count" id="3007" type="integer" length="4"/>
-                    <number name="ShadingCount" id="3008" type="integer" length="4"/>
-                    <structure name="Shading List" id="3009" repeatmin="ShadingCount" repeatmax="ShadingCount">
-                        <structref name="Shading Description" id="3010" structure="id:2915"/>
+            <number name="DataSize" id="3694" type="integer"/>
+            <number name="MetadataSize" id="3695" type="integer"/>
+            <structure name="Data" id="3696">
+                <structref name="Mesh Name" id="3697" structure="id:3269"/>
+                <number name="Chain Index" id="3698" type="integer" length="4"/>
+                <structure name="Max Mesh Description" id="3699">
+                    <number name="Mesh Attributes" id="3700" type="integer" length="4"/>
+                    <number name="Face Count" id="3701" type="integer" length="4"/>
+                    <number name="Position Count" id="3702" type="integer" length="4"/>
+                    <number name="Normal Count" id="3703" type="integer" length="4"/>
+                    <number name="Diffuse Color Count" id="3704" type="integer" length="4"/>
+                    <number name="Specular Color Count" id="3705" type="integer" length="4"/>
+                    <number name="Texture Coord Count" id="3706" type="integer" length="4"/>
+                    <number name="ShadingCount" id="3707" type="integer" length="4"/>
+                    <structure name="Shading List" id="3708" repeatmin="ShadingCount" repeatmax="ShadingCount">
+                        <structref name="Shading Description" id="3709" structure="id:3614"/>
                     </structure>
                 </structure>
-                <structref name="CLOD Description" id="3014" structure="id:3013"/>
-                <structref name="Resource Description" id="3015" structure="id:2918"/>
+                <structref name="CLOD Description" id="3713" structure="id:3712"/>
+                <structref name="Resource Description" id="3714" structure="id:3617"/>
             </structure>
-            <scriptelement name="Data Padding" id="3017"/>
-            <structure name="Metadata" id="3018">
-                <structure name="KVP" id="3019">
-                    <scriptelement name="Value" id="3023"/>
+            <scriptelement name="Data Padding" id="3716"/>
+            <structure name="Metadata" id="3717">
+                <structure name="KVP" id="3718">
+                    <scriptelement name="Value" id="3722"/>
                 </structure>
             </structure>
-            <scriptelement name="MetadataPadding" id="3026"/>
+            <scriptelement name="MetadataPadding" id="3725"/>
         </structure>
-        <structure name="CLOD Progressive Mesh Continuation" id="2550" extends="id:2559">
-            <number name="BlockType" mustmatch="yes" id="3028" type="integer">
+        <structure name="CLOD Progressive Mesh Continuation" id="3245" extends="id:3258">
+            <number name="BlockType" mustmatch="yes" id="3727" type="integer">
                 <fixedvalues>
                     <fixedvalue name="CLOD Progressive Mesh Continuation" value="0xFFFFFF3C"/>
                 </fixedvalues>
             </number>
-            <number name="DataSize" id="3029" type="integer"/>
-            <number name="MetadataSize" id="3030" type="integer"/>
-            <structure name="Data" id="3031">
-                <structref name="Name" id="3032" structure="id:2570"/>
-                <number name="Chain Index" id="3033" type="integer" length="4"/>
-                <binary name="Resolution Data" id="3034" fillcolor="005500" length="remaining"/>
+            <number name="DataSize" id="3728" type="integer"/>
+            <number name="MetadataSize" id="3729" type="integer"/>
+            <structure name="Data" id="3730">
+                <structref name="Name" id="3731" structure="id:3269"/>
+                <number name="Chain Index" id="3732" type="integer" length="4"/>
+                <binary name="Resolution Data" id="3733" fillcolor="005500" length="remaining"/>
             </structure>
-            <scriptelement name="Data Padding" id="3036"/>
-            <structure name="Metadata" id="3037">
-                <structure name="KVP" id="3038">
-                    <scriptelement name="Value" id="3042"/>
+            <scriptelement name="Data Padding" id="3735"/>
+            <structure name="Metadata" id="3736">
+                <structure name="KVP" id="3737">
+                    <scriptelement name="Value" id="3741"/>
                 </structure>
             </structure>
-            <scriptelement name="MetadataPadding" id="3045"/>
+            <scriptelement name="MetadataPadding" id="3744"/>
         </structure>
-        <structure name="Group Node" id="2552" extends="id:2559">
-            <number name="BlockType" mustmatch="yes" id="3047" type="integer">
+        <structure name="Group Node" id="3247" extends="id:3258">
+            <number name="BlockType" mustmatch="yes" id="3746" type="integer">
                 <fixedvalues>
                     <fixedvalue name="Group Node" value="0xFFFFFF21"/>
                 </fixedvalues>
             </number>
-            <number name="DataSize" id="3048" type="integer"/>
-            <number name="MetadataSize" id="3049" type="integer"/>
-            <structure name="Data" id="3050">
-                <structref name="Name" id="3051" structure="id:2570"/>
-                <structref name="Parent Node Data" id="3052" structure="id:2743"/>
+            <number name="DataSize" id="3747" type="integer"/>
+            <number name="MetadataSize" id="3748" type="integer"/>
+            <structure name="Data" id="3749">
+                <structref name="Name" id="3750" structure="id:3269"/>
+                <structref name="Parent Node Data" id="3751" structure="id:3442"/>
             </structure>
-            <scriptelement name="Data Padding" id="3054"/>
-            <structure name="Metadata" id="3055">
-                <structure name="KVP" id="3056">
-                    <scriptelement name="Value" id="3060"/>
+            <scriptelement name="Data Padding" id="3753"/>
+            <structure name="Metadata" id="3754">
+                <structure name="KVP" id="3755">
+                    <scriptelement name="Value" id="3759"/>
                 </structure>
             </structure>
-            <scriptelement name="MetadataPadding" id="3063"/>
+            <scriptelement name="MetadataPadding" id="3762"/>
         </structure>
-        <structure name="Line Set Declaration" id="2554" extends="id:2559">
-            <number name="BlockType" mustmatch="yes" id="3065" type="integer">
-                <fixedvalues>
-                    <fixedvalue name="Line Set Declaration" value="0xFFFFFF37"/>
-                </fixedvalues>
-            </number>
-            <number name="DataSize" id="3066" type="integer"/>
-            <number name="MetadataSize" id="3067" type="integer"/>
-            <structure name="Data" id="3068">
-                <structref name="Name" id="3069" structure="id:2570"/>
-                <number name="Chain index" id="3070" type="integer" length="4"/>
-                <structref name="Line Set Description" id="3147" structure="id:3083"/>
-                <structref name="Resource Description" id="3148" structure="id:2918"/>
-                <binary name="Skeleton" id="3149" fillcolor="005500" length="remaining"/>
-            </structure>
-            <scriptelement name="Data Padding" id="3072"/>
-            <structure name="Metadata" id="3073">
-                <structure name="KVP" id="3074">
-                    <scriptelement name="Value" id="3078"/>
-                </structure>
-            </structure>
-            <scriptelement name="MetadataPadding" id="3081"/>
-        </structure>
-        <structure name="Line Set Description" id="3083" encoding="UTF-8" endian="little" signed="no">
-            <number name="Reserved" id="3084" type="integer" length="1"/>
-            <number name="Position Count" id="3085" type="integer" length="4"/>
-            <number name="Normal Count" id="3086" type="integer" length="4"/>
-            <number name="Diffuse Color Count" id="3087" type="integer" length="4"/>
-            <number name="Specular Color Count" id="3088" type="integer" length="4"/>
-            <number name="Texture Coord Count" id="3089" type="integer" length="4"/>
-            <number name="ShadingCount" id="3090" type="integer" length="4"/>
-            <structure name="Shading List" id="3091" repeatmin="ShadingCount" repeatmax="ShadingCount">
-                <structref name="Shading Description" id="3092" structure="id:2915"/>
-            </structure>
-        </structure>
-        <structure name="Shading Description" id="2915" encoding="UTF-8" endian="little" signed="no">
-            <number name="Attributes" id="3095" type="integer" length="4"/>
-            <number name="TextureLayerCount" id="3096" type="integer" length="4"/>
-            <number name="TextureColorDimensions" id="3097" type="integer" length="4"/>
-            <number name="Orignial Shading ID" id="3098" type="integer" length="4"/>
-        </structure>
-        <structure name="CLOD Description" id="3013" encoding="UTF-8" endian="little" signed="no">
-            <number name="Minimum Resolution" id="3100" type="integer" length="4"/>
-            <number name="Final Maximum Resolution" id="3101" type="integer" length="4"/>
-        </structure>
-        <structure name="Resource Description" id="2918" encoding="ISO_8859-1:1987" endian="big" signed="no">
-            <structure name="Quality Factors" id="3103">
-                <number name="Position" id="3104" type="integer" length="4"/>
-                <number name="Normal" id="3105" type="integer" length="4"/>
-                <number name="Texture" id="3106" type="integer" length="4"/>
-            </structure>
-            <structure name="Inverse Quantization" id="3108">
-                <number name="Position" id="3109" type="integer" length="4"/>
-                <number name="Normal" id="3110" type="integer" length="4"/>
-                <number name="Texture Coord" id="3111" type="integer" length="4"/>
-                <number name="Diffuse Color" id="3112" type="integer" length="4"/>
-                <number name="Specular Color" id="3113" type="integer" length="4"/>
-            </structure>
-            <structure name="Resource Parameters" id="3115">
-                <number name="Param 1" id="3116" type="integer" length="4"/>
-                <number name="Param 2" id="3117" type="integer" length="4"/>
-                <number name="Param 3" id="3118" type="integer" length="4"/>
-            </structure>
-        </structure>
-        <structure name="LPString" id="2570" encoding="UTF-8" endian="little" signed="no" valueexpression="StringValue">
-            <number name="LPLength" id="3121" type="integer" length="2"/>
-            <string name="StringValue" id="3122" type="fixed-length" length="LPLength"/>
-        </structure>
-        <structure name="RGB32" id="2663" encoding="UTF-8" endian="little" signed="no">
-            <number name="Red" id="3124" type="float" length="32" lengthunit="bit" maxval="0"/>
-            <number name="Green" id="3125" type="float" length="32" lengthunit="bit"/>
-            <number name="Blue" id="3126" type="float" length="32" lengthunit="bit"/>
-        </structure>
-        <structure name="RGBA32" id="2689" encoding="UTF-8" endian="little" signed="no">
-            <number name="Red" id="3128" type="float" length="32" lengthunit="bit"/>
-            <number name="Green" id="3129" type="float" length="32" lengthunit="bit"/>
-            <number name="Blue" id="3130" type="float" length="32" lengthunit="bit"/>
-            <number name="Reserved" id="3131" type="float" length="32" lengthunit="bit"/>
-        </structure>
-        <structure name="Parent Node Data" id="2743" encoding="ISO_8859-1:1987" endian="little" signed="no">
-            <number name="Count" id="3133" type="integer" length="4"/>
-            <structure name="Nodes" id="3134" repeatmin="Count" repeatmax="Count">
-                <structref name="Name" id="3135" structure="id:2570"/>
-                <structure name="Matrix" id="3136">
-                    <number name="Transform Matrix" id="3137" repeatmin="16" repeatmax="16" type="float" length="32" lengthunit="bit"/>
-                </structure>
-            </structure>
-        </structure>
-        <structure name="LPBinary" id="3141" encoding="ISO_8859-1:1987" endian="big" signed="no">
-            <number name="Size" id="3142" type="integer" length="4"/>
-            <structure name="BinaryData" id="3143" repeatmin="Size" repeatmax="Size">
-                <binary name="BinaryValue" id="3144" repeatmin="0" repeatmax="0" length="remaining"/>
-            </structure>
-        </structure>
-        <structure name="Line Set Continuation" id="3150" extends="id:2559">
-            <number name="BlockType" mustmatch="yes" id="3152" type="integer">
+        <structure name="Line Set Continuation" id="3251" extends="id:3258">
+            <number name="BlockType" mustmatch="yes" id="3764" type="integer">
                 <fixedvalues>
                     <fixedvalue name="Line Set Continuation" value="0xFFFFFF3F"/>
                 </fixedvalues>
             </number>
-            <number name="DataSize" id="3153" type="integer"/>
-            <number name="MetadataSize" id="3154" type="integer"/>
-            <structure name="Data" id="3155">
-                <structref name="Name" id="3168" structure="id:2570"/>
-                <number name="Chain Index" id="3169" type="integer" length="4"/>
-                <number name="StartResolution" id="3170" type="integer" length="4"/>
-                <number name="EndResolution" id="3171" type="integer" length="4"/>
-                <binary name="Line Description" id="3172" fillcolor="005500" length="remaining"/>
+            <number name="DataSize" id="3765" type="integer"/>
+            <number name="MetadataSize" id="3766" type="integer"/>
+            <structure name="Data" id="3767">
+                <structref name="Name" id="3768" structure="id:3269"/>
+                <number name="Chain Index" id="3769" type="integer" length="4"/>
+                <number name="StartResolution" id="3770" type="integer" length="4"/>
+                <number name="EndResolution" id="3771" type="integer" length="4"/>
+                <binary name="Line Description" id="3772" fillcolor="005500" length="remaining"/>
             </structure>
-            <scriptelement name="Data Padding" id="3157"/>
-            <structure name="Metadata" id="3158">
-                <structure name="KVP" id="3160">
-                    <scriptelement name="Value" id="3163"/>
+            <scriptelement name="Data Padding" id="3774"/>
+            <structure name="Metadata" id="3775">
+                <structure name="KVP" id="3776">
+                    <scriptelement name="Value" id="3780"/>
                 </structure>
             </structure>
-            <scriptelement name="MetadataPadding" id="3166"/>
+            <scriptelement name="MetadataPadding" id="3783"/>
+        </structure>
+        <structure name="Texture Resource" id="3253" extends="id:3258">
+            <number name="BlockType" mustmatch="yes" id="3785" type="integer">
+                <fixedvalues>
+                    <fixedvalue name="Texture Resource" value="0xFFFFFF55"/>
+                </fixedvalues>
+            </number>
+            <number name="DataSize" id="3786" type="integer"/>
+            <number name="MetadataSize" id="3787" type="integer"/>
+            <structure name="Data" id="3788">
+                <structref name="Name" id="3789" structure="id:3269"/>
+                <number name="Height" id="3790" type="integer" length="4"/>
+                <number name="Width" id="3791" type="integer" length="4"/>
+                <number name="Type" id="3792" type="integer" length="1" display="hex"/>
+                <number name="ContinuationImageCount" id="3793" type="integer" length="4"/>
+                <structure name="Continuation Images" id="3794" repeatmin="ContinuationImageCount" repeatmax="ContinuationImageCount">
+                    <structref name="Continuation Image Format" id="3796" structure="id:3795"/>
+                </structure>
+            </structure>
+            <scriptelement name="Data Padding" id="3799"/>
+            <structure name="Metadata" id="3800">
+                <structure name="KVP" id="3801">
+                    <scriptelement name="Value" id="3805"/>
+                </structure>
+            </structure>
+            <scriptelement name="MetadataPadding" id="3808"/>
+        </structure>
+        <structure name="Line Set Declaration" id="3249" extends="id:3258">
+            <number name="BlockType" mustmatch="yes" id="3810" type="integer">
+                <fixedvalues>
+                    <fixedvalue name="Line Set Declaration" value="0xFFFFFF37"/>
+                </fixedvalues>
+            </number>
+            <number name="DataSize" id="3811" type="integer"/>
+            <number name="MetadataSize" id="3812" type="integer"/>
+            <structure name="Data" id="3813">
+                <structref name="Name" id="3814" structure="id:3269"/>
+                <number name="Chain index" id="3815" type="integer" length="4"/>
+                <structref name="Line Set Description" id="3817" structure="id:3816"/>
+                <structref name="Resource Description" id="3818" structure="id:3617"/>
+                <binary name="Skeleton" id="3819" fillcolor="005500" length="remaining"/>
+            </structure>
+            <scriptelement name="Data Padding" id="3821"/>
+            <structure name="Metadata" id="3822">
+                <structure name="KVP" id="3823">
+                    <scriptelement name="Value" id="3827"/>
+                </structure>
+            </structure>
+            <scriptelement name="MetadataPadding" id="3830"/>
+        </structure>
+        <structure name="Line Set Description" id="3816" encoding="UTF-8" endian="little" signed="no">
+            <number name="Reserved" id="3832" type="integer" length="1"/>
+            <number name="Position Count" id="3833" type="integer" length="4"/>
+            <number name="Normal Count" id="3834" type="integer" length="4"/>
+            <number name="Diffuse Color Count" id="3835" type="integer" length="4"/>
+            <number name="Specular Color Count" id="3836" type="integer" length="4"/>
+            <number name="Texture Coord Count" id="3837" type="integer" length="4"/>
+            <number name="ShadingCount" id="3838" type="integer" length="4"/>
+            <structure name="Shading List" id="3839" repeatmin="ShadingCount" repeatmax="ShadingCount">
+                <structref name="Shading Description" id="3840" structure="id:3614"/>
+            </structure>
+        </structure>
+        <structure name="Shading Description" id="3614" encoding="UTF-8" endian="little" signed="no">
+            <number name="Attributes" id="3843" type="integer" length="4"/>
+            <number name="TextureLayerCount" id="3844" type="integer" length="4"/>
+            <number name="TextureColorDimensions" id="3845" type="integer" length="4"/>
+            <number name="Orignial Shading ID" id="3846" type="integer" length="4"/>
+        </structure>
+        <structure name="CLOD Description" id="3712" encoding="UTF-8" endian="little" signed="no">
+            <number name="Minimum Resolution" id="3848" type="integer" length="4"/>
+            <number name="Final Maximum Resolution" id="3849" type="integer" length="4"/>
+        </structure>
+        <structure name="Resource Description" id="3617" encoding="ISO_8859-1:1987" endian="big" signed="no">
+            <structure name="Quality Factors" id="3851">
+                <number name="Position" id="3852" type="integer" length="4"/>
+                <number name="Normal" id="3853" type="integer" length="4"/>
+                <number name="Texture" id="3854" type="integer" length="4"/>
+            </structure>
+            <structure name="Inverse Quantization" id="3856">
+                <number name="Position" id="3857" type="integer" length="4"/>
+                <number name="Normal" id="3858" type="integer" length="4"/>
+                <number name="Texture Coord" id="3859" type="integer" length="4"/>
+                <number name="Diffuse Color" id="3860" type="integer" length="4"/>
+                <number name="Specular Color" id="3861" type="integer" length="4"/>
+            </structure>
+            <structure name="Resource Parameters" id="3863">
+                <number name="Param 1" id="3864" type="integer" length="4"/>
+                <number name="Param 2" id="3865" type="integer" length="4"/>
+                <number name="Param 3" id="3866" type="integer" length="4"/>
+            </structure>
+        </structure>
+        <structure name="LPString" id="3269" encoding="UTF-8" endian="little" signed="no" valueexpression="StringValue">
+            <number name="LPLength" id="3869" type="integer" length="2"/>
+            <string name="StringValue" id="3870" type="fixed-length" length="LPLength"/>
+        </structure>
+        <structure name="RGB32" id="3362" encoding="UTF-8" endian="little" signed="no">
+            <number name="Red" id="3872" type="float" length="32" lengthunit="bit" maxval="0"/>
+            <number name="Green" id="3873" type="float" length="32" lengthunit="bit"/>
+            <number name="Blue" id="3874" type="float" length="32" lengthunit="bit"/>
+        </structure>
+        <structure name="RGBA32" id="3388" encoding="UTF-8" endian="little" signed="no">
+            <number name="Red" id="3876" type="float" length="32" lengthunit="bit"/>
+            <number name="Green" id="3877" type="float" length="32" lengthunit="bit"/>
+            <number name="Blue" id="3878" type="float" length="32" lengthunit="bit"/>
+            <number name="Reserved" id="3879" type="float" length="32" lengthunit="bit"/>
+        </structure>
+        <structure name="Parent Node Data" id="3442" encoding="ISO_8859-1:1987" endian="little" signed="no">
+            <number name="Count" id="3881" type="integer" length="4"/>
+            <structure name="Nodes" id="3882" repeatmin="Count" repeatmax="Count">
+                <structref name="Name" id="3883" structure="id:3269"/>
+                <structure name="Matrix" id="3884">
+                    <number name="Transform Matrix" id="3885" repeatmin="16" repeatmax="16" type="float" length="32" lengthunit="bit"/>
+                </structure>
+            </structure>
+        </structure>
+        <structure name="LPBinary" id="3889" encoding="ISO_8859-1:1987" endian="big" signed="no">
+            <number name="Size" id="3890" type="integer" length="4"/>
+            <structure name="BinaryData" id="3891" repeatmin="Size" repeatmax="Size">
+                <binary name="BinaryValue" id="3892" repeatmin="0" repeatmax="0" length="remaining"/>
+            </structure>
+        </structure>
+        <structure name="Continuation Image Format" id="3795" encoding="UTF-8" endian="little" signed="no">
+            <number name="Compression Type" id="3895" type="integer" length="1" display="hex"/>
+            <number name="Texture image Channels" id="3896" type="integer" length="1" display="hex"/>
+            <number name="Continuation Image Attributes" id="3897" type="integer" length="2" display="hex"/>
+            <scriptelement name="Image Data" id="3898">
+                <script name="unnamed" type="Generic">
+                    <source language="Python">results = currentMapper.getCurrentResults()
+attrs = results.getResultByName(&quot;Continuation Image Attributes&quot;).getValue().getUnsignedNumber()
+if (attrs &amp; 1 &gt; 0):
+    str=currentMapper.getCurrentGrammar().getStructureByName(&quot;Image URL List&quot;)
+    currentMapper.mapStructure(str)          
+else:
+    element=Element(ELEMENT_NUMBER,&quot;Image Data Byte Count&quot;, True)
+    element.setLength(&quot;4&quot;, LENGTH_UNIT_BYTES)    
+    currentMapper.mapElementWithSize(element, 4)</source>
+                </script>
+            </scriptelement>
+        </structure>
+        <structure name="Image URL List" id="3900" encoding="UTF-8" endian="little" signed="no">
+            <number name="Count" id="3901" type="integer" length="4"/>
+            <structure name="URL List" id="3902" repeatmin="Count" repeatmax="Count">
+                <structref name="URL" id="3903" structure="id:3269"/>
+            </structure>
         </structure>
     </grammar>
 </ufwb>
