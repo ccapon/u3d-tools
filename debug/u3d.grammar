@@ -30,6 +30,7 @@ if (mod&gt;0):
             <structref name="View Resource" id="30" repeatmin="0" structure="id:29"/>
             <structref name="Texture Continuation" id="32" repeatmin="0" structure="id:31"/>
             <structref name="CLOD Mesh Declaration" id="533" repeatmin="0" structure="id:516"/>
+            <structref name="CLOD Progressive Mesh Continuation" id="577" repeatmin="0" structure="id:560"/>
             <structref name="Unknown Block" id="34" repeatmin="0" structure="id:33"/>
         </structure>
         <structure name="Generic Block" id="36" encoding="UTF-8" endian="little" signed="no" valueexpression="BlockType">
@@ -638,6 +639,27 @@ else:
                 <number name="Param 2" id="413" type="integer" length="4"/>
                 <number name="Param 3" id="414" type="integer" length="4"/>
             </structure>
+        </structure>
+        <structure name="CLOD Progressive Mesh Continuation" id="560" extends="id:36">
+            <number name="BlockType" mustmatch="yes" id="562" fillcolor="FF55FF" type="integer">
+                <fixedvalues>
+                    <fixedvalue name="CLOD Progressive Mesh Continuation" value="0xFFFFFF3C"/>
+                </fixedvalues>
+            </number>
+            <number name="DataSize" id="563" type="integer"/>
+            <number name="MetadataSize" id="564" type="integer"/>
+            <structure name="Data" id="565">
+                <structref name="Name" id="578" structure="id:47"/>
+                <number name="Chain Index" id="579" type="integer" length="4"/>
+                <binary name="Resolution Data" id="580" fillcolor="005500" length="remaining"/>
+            </structure>
+            <scriptelement name="Data Padding" id="567"/>
+            <structure name="Metadata" id="568">
+                <structure name="KVP" id="570">
+                    <scriptelement name="Value" id="573"/>
+                </structure>
+            </structure>
+            <scriptelement name="MetadataPadding" id="576"/>
         </structure>
     </grammar>
 </ufwb>
