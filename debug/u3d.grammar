@@ -37,6 +37,7 @@ if (mod&gt;0):
             <structref name="Texture Resource" id="45" fillcolor="55AAFF" repeatmin="0" structure="id:44"/>
             <structref name="Animation Modifier" id="715" repeatmin="0" structure="id:697"/>
             <structref name="Bone Weight Modifier" id="748" repeatmin="0" structure="id:731"/>
+            <structref name="Motion Resource" id="772" repeatmin="0" structure="id:755"/>
             <structref name="Unknown Block" id="47" repeatmin="0" structure="id:46"/>
         </structure>
         <structure name="Generic Block" id="49" encoding="UTF-8" endian="little" signed="no" valueexpression="BlockType">
@@ -751,6 +752,32 @@ else:
             </structure>
             <scriptelement name="MetadataPadding" id="713"/>
         </structure>
+        <structure name="Motion Resource" id="755" extends="id:49">
+            <description>TO BE FIXED</description>
+            <number name="BlockType" mustmatch="yes" id="757" fillcolor="AA0000" type="integer">
+                <fixedvalues>
+                    <fixedvalue name="Motion Resource" value="0xFFFFFF56"/>
+                </fixedvalues>
+            </number>
+            <number name="DataSize" id="758" type="integer"/>
+            <number name="MetadataSize" id="759" type="integer"/>
+            <structure name="Data" id="760">
+                <structref name="Name" id="773" structure="id:60"/>
+                <number name="TrackCount" id="774" type="integer" length="4"/>
+                <number name="Time Inverse Quant" id="775" type="float" length="32" lengthunit="bit"/>
+                <number name="Rotation Inverse Quant" id="776" type="float" length="32" lengthunit="bit"/>
+                <structure name="Motion Tracks" id="785" length="0" alignment="0">
+                    <structref name="Motion Track" id="787" structure="id:777"/>
+                </structure>
+            </structure>
+            <scriptelement name="Data Padding" id="762"/>
+            <structure name="Metadata" id="763">
+                <structure name="KVP" id="765">
+                    <scriptelement name="Value" id="768"/>
+                </structure>
+            </structure>
+            <scriptelement name="MetadataPadding" id="771"/>
+        </structure>
         <structure name="Line Set Description" id="607" encoding="UTF-8" endian="little" signed="no">
             <number name="Reserved" id="623" type="integer" length="1"/>
             <number name="Position Count" id="624" type="integer" length="4"/>
@@ -846,11 +873,49 @@ else:
                 <structref name="URL" id="694" structure="id:60"/>
             </structure>
         </structure>
-        <structure name="Motion Information" id="720" encoding="ISO_8859-1:1987" endian="big" signed="no">
+        <structure name="Motion Information" id="720" encoding="UTF-8" endian="little" signed="no">
             <structref name="Motion Name" id="722" structure="id:60"/>
             <number name="Motion Attributes" id="723" type="integer" length="4"/>
             <number name="Time Offset" id="724" type="float" length="32" lengthunit="bit"/>
             <number name="Time Scale" id="725" type="float" length="32" lengthunit="bit"/>
+        </structure>
+        <structure name="Motion Track" id="777" encoding="UTF-8" endian="little" signed="no" fillcolor="55AAFF">
+            <structref name="Name" id="779" structure="id:60"/>
+            <number name="TimeCount" id="780" type="integer" length="4"/>
+            <number name="Displacement Inverse Quant" id="781" type="float" length="32" lengthunit="bit"/>
+            <number name="Scale Inverse Quant" id="782" type="float" length="32" lengthunit="bit"/>
+            <structref name="First Frame" id="788" structure="id:783"/>
+            <structure name="Differential Frames" id="815" repeatmin="TimeCount-2" repeatmax="TimeCount-2">
+                <structref name="Differential Key Frame" id="817" structure="id:805"/>
+            </structure>
+            <structref name="Last Frame" id="789" structure="id:783"/>
+        </structure>
+        <structure name="Vector3-F32" id="791" encoding="UTF-8" endian="little" signed="no">
+            <number name="X" id="793" type="float" length="32" lengthunit="bit"/>
+            <number name="Y" id="794" type="float" length="32" lengthunit="bit"/>
+            <number name="Z" id="795" type="float" length="32" lengthunit="bit"/>
+        </structure>
+        <structure name="Vector4-F32" id="797" encoding="UTF-8" endian="little" signed="no">
+            <number name="X1" id="799" type="float" length="32" lengthunit="bit"/>
+            <number name="X2" id="800" type="float" length="32" lengthunit="bit"/>
+            <number name="X3" id="801" type="float" length="32" lengthunit="bit"/>
+            <number name="X4" id="802" type="float" length="32" lengthunit="bit"/>
+        </structure>
+        <structure name="Unquantized Key Frame" id="783" encoding="UTF-8" endian="little" signed="no">
+            <number name="Time" id="790" type="float" length="32" lengthunit="bit"/>
+            <structref name="Displacement" id="796" structure="id:791"/>
+            <structref name="Rotation" id="803" structure="id:797"/>
+            <structref name="Scale" id="804" structure="id:791"/>
+        </structure>
+        <structure name="Differential Key Frame" id="805" encoding="UTF-8" endian="little" signed="no">
+            <number name="Time Sign" id="807" type="integer" length="1"/>
+            <number name="Time Difference" id="808" type="integer" length="4"/>
+            <number name="Displacement Signs" id="809" type="integer" length="1"/>
+            <binary name="Displacement XYZ" id="818" length="12"/>
+            <number name="Rotation Signs" id="811" type="integer" length="1"/>
+            <binary name="Rotation Differentials" id="820" length="12"/>
+            <number name="Scale Signs" id="813" type="integer" length="1"/>
+            <binary name="Scale Differentials" id="821" length="12"/>
         </structure>
     </grammar>
 </ufwb>
