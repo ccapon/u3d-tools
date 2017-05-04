@@ -754,7 +754,7 @@ else:
         </structure>
         <structure name="Motion Resource" id="755" extends="id:49">
             <description>TO BE FIXED</description>
-            <number name="BlockType" mustmatch="yes" id="757" fillcolor="AA0000" type="integer">
+            <number name="BlockType" mustmatch="yes" id="757" fillcolor="AAFF00" type="integer">
                 <fixedvalues>
                     <fixedvalue name="Motion Resource" value="0xFFFFFF56"/>
                 </fixedvalues>
