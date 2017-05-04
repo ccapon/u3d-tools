@@ -754,7 +754,7 @@ else:
         </structure>
         <structure name="Motion Resource" id="755" extends="id:49">
             <description>TO BE FIXED</description>
-            <number name="BlockType" mustmatch="yes" id="757" fillcolor="AAFF00" type="integer">
+            <number name="BlockType" mustmatch="yes" id="757" type="integer">
                 <fixedvalues>
                     <fixedvalue name="Motion Resource" value="0xFFFFFF56"/>
                 </fixedvalues>
@@ -766,7 +766,7 @@ else:
                 <number name="TrackCount" id="774" type="integer" length="4"/>
                 <number name="Time Inverse Quant" id="775" type="float" length="32" lengthunit="bit"/>
                 <number name="Rotation Inverse Quant" id="776" type="float" length="32" lengthunit="bit"/>
-                <structure name="Motion Tracks" id="785" length="0" alignment="0">
+                <structure name="Motion Tracks" id="785" length="0" disabled="yes" alignment="0">
                     <structref name="Motion Track" id="787" structure="id:777"/>
                 </structure>
             </structure>
