@@ -36,6 +36,7 @@ if (mod&gt;0):
             <structref name="Line Set Continuation" id="43" repeatmin="0" structure="id:42"/>
             <structref name="Texture Resource" id="45" fillcolor="55AAFF" repeatmin="0" structure="id:44"/>
             <structref name="Animation Modifier" id="715" repeatmin="0" structure="id:697"/>
+            <structref name="Bone Weight Modifier" id="748" repeatmin="0" structure="id:731"/>
             <structref name="Unknown Block" id="47" repeatmin="0" structure="id:46"/>
         </structure>
         <structure name="Generic Block" id="49" encoding="UTF-8" endian="little" signed="no" valueexpression="BlockType">
@@ -698,6 +699,30 @@ else:
                 </structure>
             </structure>
             <scriptelement name="MetadataPadding" id="621"/>
+        </structure>
+        <structure name="Bone Weight Modifier" id="731" extends="id:49">
+            <number name="BlockType" mustmatch="yes" id="733" type="integer">
+                <fixedvalues>
+                    <fixedvalue name="Bone Weight Modifier" value="0xFFFFFF44"/>
+                </fixedvalues>
+            </number>
+            <number name="DataSize" id="734" type="integer"/>
+            <number name="MetadataSize" id="735" type="integer"/>
+            <structure name="Data" id="736">
+                <structref name="Name" id="749" structure="id:60"/>
+                <number name="Chain Index" id="750" type="integer" length="4"/>
+                <number name="Attributes" id="751" type="integer" length="4"/>
+                <number name="Bone Weight Inverse Quant" id="752" type="float" length="32" lengthunit="bit"/>
+                <number name="PositionCount" id="753" type="integer" length="4"/>
+                <binary name="Position Bone Weight List" id="754" fillcolor="005500" length="remaining"/>
+            </structure>
+            <scriptelement name="Data Padding" id="738"/>
+            <structure name="Metadata" id="739">
+                <structure name="KVP" id="741">
+                    <scriptelement name="Value" id="744"/>
+                </structure>
+            </structure>
+            <scriptelement name="MetadataPadding" id="747"/>
         </structure>
         <structure name="Animation Modifier" id="697" extends="id:49">
             <number name="BlockType" mustmatch="yes" id="699" type="integer">
